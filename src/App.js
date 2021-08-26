@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login'
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
+import Books from './components/Books/Books';
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <main>
-              <h1>Os livros vem aqui </h1>
+              <h1>Bem vindo {localStorage.getItem('githubUser')} </h1>
+              <Books/>
             </main>
 
           </Route>
