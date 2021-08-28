@@ -27,7 +27,9 @@ function Login() {
                 }))
 
                 setUser(imageUrl)
-                window.location.reload(true);//gambiarra momentanea
+
+                alert(`Bem vindo ${e.target[0].value}!`)
+                window.location = "/"//gambiarra momentanea
                 
             } else{
                 alert("Github invalido")
@@ -37,7 +39,7 @@ function Login() {
     }
 
     return (
-        <main>
+        <>
             <Formulario onSubmit={handleSubmit}>
                 <label htmlFor="usuario">
                     Digite o seu usuario do Github
@@ -46,7 +48,7 @@ function Login() {
                 <input  type="submit"/>
             </Formulario>
             <img src={user}/>
-        </main>
+        </>
     )
 }
 

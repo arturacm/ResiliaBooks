@@ -11,7 +11,7 @@ function Books() {
 
     },[])
     return (
-        <main>
+        <>
             <ul>
 
             {livros.map((livro,i)=>{
@@ -20,7 +20,7 @@ function Books() {
                     )
                 })}
             </ul>
-        </main>
+        </>
     )
 }
 
