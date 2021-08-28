@@ -10,8 +10,6 @@ const Formulario = styled.form`
 
 function Login() {
 
-    console.log(imageExists)
-    
     const [user,setUser] = useState(false)
 
     function handleSubmit(e){
@@ -27,8 +25,9 @@ function Login() {
                     
                     livros : [{"id":1,"titulo":"O senhor dos aneis ","autorId":1,"autorUrl":"http://localhost:3000/autores/1","url":"http://localhost:3000/livros/1","capaURL":"https://images-na.ssl-images-amazon.com/images/I/81lQ5N0QwJL.jpg"},]
                 }))
-                
+
                 setUser(imageUrl)
+                window.location.reload(true);//gambiarra momentanea
                 
             } else{
                 alert("Github invalido")

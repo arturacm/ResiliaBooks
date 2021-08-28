@@ -12,11 +12,14 @@ function Books() {
     },[])
     return (
         <main>
-            {livros.map(livro=>{
+            <ul>
+
+            {livros.map((livro,i)=>{
                 return(
-                    <h3>{JSON.stringify(livro)}</h3>
-                )
-            })}
+                    <li key={i} >{JSON.stringify(livro)}</li>
+                    )
+                })}
+            </ul>
         </main>
     )
 }
