@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <main>
-              <h1>Bem vindo {localStorage.getItem('githubUser')} </h1>
+              <h1>Bem vindo {localStorage.getItem('user')} </h1>
               <Books/>
             </main>
 

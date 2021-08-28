@@ -4,8 +4,10 @@ function Books() {
     const [livros, setLivros] = useState([])
     useEffect(()=>{
         fetch("http://localhost:3000/livros")
-        .then((res)=> res.json())
+        .then((res)=> res.ok?res.json():false)
+        .catch(err=>console.log(err))
         .then(res=> setLivros(res))
+        
 
     },[])
     return (

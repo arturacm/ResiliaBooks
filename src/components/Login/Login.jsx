@@ -22,7 +22,12 @@ function Login() {
         
         imageExists(imageUrl,(existe)=>{
             if(existe){
-                localStorage.setItem('githubUser',e.target[0].value);
+                localStorage.setItem('user',e.target[0].value);
+                localStorage.setItem(e.target[0].value,JSON.stringify({
+                    
+                    livros : [{"id":1,"titulo":"O senhor dos aneis ","autorId":1,"autorUrl":"http://localhost:3000/autores/1","url":"http://localhost:3000/livros/1","capaURL":"https://images-na.ssl-images-amazon.com/images/I/81lQ5N0QwJL.jpg"},]
+                }))
+                
                 setUser(imageUrl)
                 
             } else{
