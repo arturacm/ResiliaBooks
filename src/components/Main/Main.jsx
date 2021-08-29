@@ -1,10 +1,23 @@
-import H1 from './estilo';
+import style from './estilo';
 
 
 function Main (){
     return (
     <>
-        <H1>Bem vindo {localStorage.getItem('githubUser')} </H1>
+    <style.Rotas>
+        <style.UlRotas>
+            <style.LiRotas>
+                <h1>LIVRO</h1>
+            </style.LiRotas>
+            <style.LiRotas>
+                <h1>GÊNERO</h1>
+            </style.LiRotas>
+            <style.LiRotas>
+                <h1>AUTOR</h1>
+                </style.LiRotas>
+        </style.UlRotas>
+    </style.Rotas>
+        <style.H1>Bem vindo {localStorage.getItem('githubUser')} </style.H1>
     </>
     );
 }

@@ -1,5 +1,6 @@
 
 import React, {useEffect,useState} from 'react'
+import style from './estilo';
 
 function Books() {
     const [livros, setLivros] = useState([])
@@ -11,11 +12,13 @@ function Books() {
     },[])
     return (
         <main>
-            {livros.map(livro=>{
-                return(
-                    <h3>{JSON.stringify(livro)}</h3>
-                )
-            })}
+            <div>
+                {livros.map(livro=>{
+                    return(
+                        <h3>{JSON.stringify(livro)}</h3>
+                    )
+                })}
+            </div>
         </main>
     )
 }

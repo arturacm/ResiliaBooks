@@ -1,0 +1,33 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h2{
+    font-family: Montserrat;
+    font-weight: 600;
+}
+.imgBtn{
+    cursor: pointer;
+    border-radius: 10px;
+}
+.searchSubmit{
+    border: none;
+    background: transparent;
+    cursor:pointer;
+}
+.imgFavoritos{
+    transform:translate(35px, 0px) scale(2);
+}
+.imgLogin{
+    transform: translate(5px, 0px) scale(2);
+}
+.imgCarrinho{
+    transform:translate(18px, 0px) scale(2);
+}
+.subTitle{
+    position:absolute;
+    margin:0 auto;
+}
+.alinharLogin{
+    margin: 0em 0em 0em 3em;
+}
