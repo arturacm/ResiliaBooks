@@ -1,0 +1,35 @@
+
+.carregando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #faffff;
+    margin-top: -1.5em;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.loading{
+  width: 100px;
+  height: 100px;
+  border: 2em solid gray;
+  border-top-color:cornflowerblue;
+  border-radius: 50%;
+  animation: loading 1s infinite ease-out;
+}
+
+@keyframes loading {
+  to{
+    transform: rotate(1turn);
+  }
+}
+.pronto{
+    display: none;
+}
+  
+.oculto{
+  display: none;
+}
+.visivel{
+  display: block;
+}

@@ -1,0 +1,41 @@
+.rodape {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.black{
+    background: black;
+    width:100vw;
+    height: rem(56);
+}
+.imgTemporaria{
+    width: 143px;
+    height:123px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.grupo{
+    width: calc(100vw - 157px);
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+.link{
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5em;
+}
+
+.direitos{
+    margin:0 auto;
+    padding:3% 0% 0% 0%;
+    text-align: center;
+    font-size: 0.77em;
+}
+
