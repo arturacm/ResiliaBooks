@@ -6,12 +6,16 @@ import Books from './components/Books/Books';
 import Profile from './components/Profile/Profile';
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
+import MyBooks from './components/MyBooks/MyBooks';
 
 
 function App() {
 
     const[perfilEstaLogado, setPerfilEstaLogado] = useState(false)
+    const user = localStorage.getItem('user')
 
+    let usuarioLocal = localStorage.getItem('user');
+    
     console.log("main renderizado")
     useEffect(()=>{
         if(localStorage.getItem('user')){
@@ -19,16 +23,8 @@ function App() {
         }else{
             setPerfilEstaLogado(false)
         }
-    },[localStorage.getItem('user')])
-    // function atualiza(){
-    //   console.log("main renderizado")
-    //     if(localStorage.getItem('user')){
-    //         setPerfilEstaLogado(true)
-    //     }else{
-    //         setPerfilEstaLogado(false)
-    //     }
-    // }
-    // atualiza()
+    },[usuarioLocal])
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -37,15 +33,22 @@ function App() {
           <Route path="/" exact>
             
             <main>
-              <h1>Bem vindo {localStorage.getItem('user')}  </h1>
+              <h1>Bem vindo {user}  </h1>
               <Books/>
             </main>
 
           </Route>
           <Route path="/login" exact>
-          {setPerfilEstaLogado}
+          
             <main>
               <Login/>
+            </main>
+
+          </Route>
+          <Route path="/meus-livros" exact>
+          
+            <main>
+              <MyBooks/>
             </main>
 
           </Route>

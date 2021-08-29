@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
@@ -26,16 +26,27 @@ function Header({perfilEstaLogado}) {
     function logar(){
         if(perfilEstaLogado){
             return (
-                <Link to="/perfil">
-                    <img src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" srcset="" /> 
-                Perfil
-                </Link>
+                <>
+                    <Link to="/meus-livros">
+                        <nav>
+                            Meus Livros
+                        </nav>
+                    </Link>
+                    <Link to="/perfil">
+                        <nav>
+                            <img src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" /> 
+                            Perfil
+                        </nav>
+                    </Link>
+                </>
             )
         }else{
             return(
                 <Link to="/login">
-                    <img src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" srcset="" /> 
-                Login
+                    <nav>
+                        <img src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" /> 
+                        Login
+                    </nav>
                 </Link>
             )
         }
@@ -47,11 +58,10 @@ function Header({perfilEstaLogado}) {
                     ResiliaBooks 
                 </Link>
             </nav> 
-            <nav><input type="text" placeholder="buscar livros"/></nav>
-            <nav>meus livros</nav>
             <nav>
-                {logar()}
+                <input type="text" placeholder="buscar livros"/>
             </nav>
+            {logar()}
             <nav>meu carrinho</nav>
         </Cabecalho>
     )

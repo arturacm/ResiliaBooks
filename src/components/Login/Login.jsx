@@ -47,7 +47,7 @@ function Login() {
                 <input type="text" id="usuario" />
                 <input  type="submit"/>
             </Formulario>
-            <img src={user}/>
+            <img src={user?user:""}/>
         </>
     )
 }
