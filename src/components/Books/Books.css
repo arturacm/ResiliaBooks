@@ -1,0 +1,22 @@
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    
+}
+.artigo{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 30vh;
+    margin: 10px;
+}
+img{
+    max-height: 70%;
+    width: 100%;
+    
+}

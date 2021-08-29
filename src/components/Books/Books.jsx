@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react'
-
+import './Books.css'
 function Books() {
     const [livros, setLivros] = useState([])
     useEffect(()=>{
@@ -10,14 +10,28 @@ function Books() {
         
 
     },[])
+
     return (
-        <main>
-            {livros.map(livro=>{
+     
+            <section className='container'>
+            {livros.map(item=>{
+                
                 return(
-                    <h3>{JSON.stringify(livro)}</h3>
+                    
+                    <article className="artigo">
+                        <h3>{item.titulo}</h3>
+             <img src={item.capaURL} alt="capa do Livro" className="img" />
+             
+             <button >Acessar</button>
+                    </article>
+                    
+                    
                 )
-            })}
-        </main>
+                
+            }
+            )}
+            </section>
+        
     )
 }
 
