@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header perfilEstaLogado = {perfilEstaLogado}/>
+        <Header perfilEstaLogado = {perfilEstaLogado} ehAdmin = {usuarioLocal === 'admin'}/>
         <Switch>
           <Route path="/" exact>
             
@@ -52,10 +52,22 @@ function App() {
             </main>
 
           </Route>
+          <Route path="/base-de-livros" exact>
+          
+            <main>
+              <h1>
+              pagina para alterar a base de livros, permitido apenas para o admin
+              </h1>
+              <h2>
+                Você é admin? {usuarioLocal === 'admin'?"SIM":"NÃO"}
+              </h2>
+            </main>
+
+          </Route>
           <Route path="/perfil" exact>
 
             <main>
-              <Profile/>
+              <Profile ehAdmin = {usuarioLocal === 'admin'} />
             </main>
 
           </Route>

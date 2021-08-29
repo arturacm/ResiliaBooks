@@ -9,7 +9,7 @@ align-items:center;
 margin: 10px auto;
 `
 
-function Profile() {
+function Profile({ehAdmin}) {
 
     function logout(){
         localStorage.removeItem('user');
@@ -17,8 +17,12 @@ function Profile() {
         
     }
     function apagarRegistros(){
-        localStorage.removeItem(localStorage.getItem('user'));
-        window.location = "/login"
+        if(ehAdmin){
+            logout();
+        }else{
+            localStorage.removeItem(localStorage.getItem('user'));
+            window.location = "/login";
+        }
         
     }
 
