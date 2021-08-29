@@ -28,9 +28,9 @@ function MyBooks() {
     return (
         <Livros>
             
-            {meusLivros.livros.map(livro=>{
+            {meusLivros.livros.map((livro,i)=>{
                 return(
-                    <div className="livro">
+                    <div className="livro" key={i}>
                         <img src={livro.capaURL} alt={`imagem da capa do livro ${livro.titulo}`} />
                         <p>
                             {livro.titulo}

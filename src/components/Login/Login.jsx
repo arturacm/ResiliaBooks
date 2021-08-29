@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import imageExists from 'image-exists'
 
@@ -10,24 +10,30 @@ const Formulario = styled.form`
 
 function Login() {
 
-    const [user,setUser] = useState(false)
+    // const [user,setUser] = useState(false)
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(e.target[0].value)
+        const user = e.target[0].value;
 
-        const imageUrl = `https://github.com/${e.target[0].value}.png`;
+        console.log(user);
+
+        const imageUrl = `https://github.com/${user}.png`;
         
         imageExists(imageUrl,(existe)=>{
             if(existe){
-                localStorage.setItem('user',e.target[0].value);
-                localStorage.setItem(e.target[0].value,JSON.stringify({
-                    
-                    livros : [{"id":1,"titulo":"O senhor dos aneis ","autorId":1,"autorUrl":"http://localhost:3000/autores/1","url":"http://localhost:3000/livros/1","capaURL":"https://images-na.ssl-images-amazon.com/images/I/81lQ5N0QwJL.jpg"},]
-                }))
+                localStorage.setItem('user',user);
 
-                setUser(imageUrl)
-
+               if(localStorage.getItem(user)){
+                console.log("nenhum livro criado")
+               }else{
+                   localStorage.setItem(user,JSON.stringify({
+                       
+                       livros : [{"id":1,"titulo":"O senhor dos aneis ","autorId":1,"autorUrl":"http://localhost:3000/autores/1","url":"http://localhost:3000/livros/1","capaURL":"https://images-na.ssl-images-amazon.com/images/I/81lQ5N0QwJL.jpg"},]
+                   }))
+                   console.log("um livro criado como placeholder")
+               }
+                // setUser(imageUrl)
                 alert(`Bem vindo ${e.target[0].value}!`)
                 window.location = "/"//gambiarra momentanea
                 
@@ -47,7 +53,7 @@ function Login() {
                 <input type="text" id="usuario" />
                 <input  type="submit"/>
             </Formulario>
-            <img src={user?user:""}/>
+            {/* <img src={user?user:""} alt='Imagem do github do usuario'/> */}
         </>
     )
 }
