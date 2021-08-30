@@ -1,4 +1,19 @@
 import React, {useEffect,useState} from 'react'
+import {Link} from 'react-router-dom'
+import styled from 'styled-components'
+
+const Livros = styled.section`
+display: flex;
+
+.artigo{
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+}
+img{
+    max-width:200px
+}
+`
 
 function Books() {
     const [livros, setLivros] = useState([])
@@ -10,17 +25,28 @@ function Books() {
         
 
     },[])
-    return (
-        <>
-            <ul>
 
-            {livros.map((livro,i)=>{
+    return (
+     
+            <Livros>
+            {livros.map(item=>{
+                
                 return(
-                    <li key={i} >{JSON.stringify(livro)}</li>
-                    )
-                })}
-            </ul>
-        </>
+                    
+                    <article key={item.id} className="artigo">
+                        <h3>{item.titulo}</h3>
+             <img src={item.capaURL} alt="capa do Livro" className="img" />
+             <Link to={`/livro/${item.id}`}>Acessar</Link>
+             
+                    </article>
+                    
+                    
+                )
+                
+            }
+            )}
+            </Livros>
+        
     )
 }
 
