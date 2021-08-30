@@ -39,12 +39,23 @@ function Book() {
         const carrinho = localStorage.getItem("carrinho")
         console.log(carrinho)
         if(carrinho){
-            const novoCarrinho = [...JSON.parse(carrinho),livro ]
-            localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
+            const livroObj = JSON.parse(carrinho)
+            console.log(livroObj)
+
+            const livroEstaNoCarrinho = livroObj.reduce((acum,liv, i)=>liv.id===livro.id?true:acum,false)
+
+            if(livroEstaNoCarrinho){
+                alert("Este livro já está no seu carrinho")
+
+            }else{
+                const novoCarrinho = [...livroObj,livro ]
+                localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
+                alert("Livro adicionado ao carrinho com sucesso!")
+            }
         }else{
             localStorage.setItem("carrinho", JSON.stringify([livro]))
+            alert("Livro adicionado ao carrinho com sucesso!")
         }
-        console.log(localStorage.getItem("carrinho"))
     }
 
     function mostrarLivro(){
