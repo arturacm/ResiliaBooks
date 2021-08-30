@@ -24,13 +24,11 @@ function App() {
             <main>
               <Book />
             </main>
-          <Route path="/carrinho/" exact>
-            
-                <Carrinho/>
-
-           
-
           </Route>
+          <Route path="/carrinho/" exact>
+            <main>
+                <Carrinho/>
+            </main>
           </Route>
           <Route path="/login" exact>
             <main>

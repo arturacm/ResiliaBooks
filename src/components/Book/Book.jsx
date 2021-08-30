@@ -1,5 +1,5 @@
 import React, {useEffect,useState,useCallback} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 
 function Book() {
     
@@ -41,6 +41,7 @@ function Book() {
                             {mostrarLivro()}
 
                         </article>  
+                        <Link to='/carrinho'>Comprar</Link>
              </section>
     )                        
 }     
