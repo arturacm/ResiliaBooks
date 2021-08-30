@@ -9,6 +9,7 @@ img{
 
 function Carrinho({ perfilEstaLogado }) {
     const [carrinho, setCarrinho] = useState(false);
+    let subTotal = 0;
 
         useEffect(()=>{
             if(localStorage.getItem("carrinho")){
@@ -19,6 +20,7 @@ function Carrinho({ perfilEstaLogado }) {
                 console.log("nada no carrinho")
             }
         },[])
+        
 
         function limparCarrinho(){
             
@@ -27,7 +29,7 @@ function Carrinho({ perfilEstaLogado }) {
             
         }
         function removerDoCarrinho(indice){
-            const newCarrinho = carrinho.filter((livro, i)=> i!=indice)
+            const newCarrinho = carrinho.filter((livro, i)=> i!==indice)
             localStorage.setItem("carrinho",JSON.stringify(newCarrinho))
             setCarrinho(newCarrinho)
             
@@ -38,11 +40,13 @@ function Carrinho({ perfilEstaLogado }) {
             <Tabela>
                 <thead>
                     <th>Item</th>
-                    <th>Item</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
                     <th>Preço</th>
                 </thead>
                 <tbody>
                     {carrinho?carrinho.map((livro,i)=>{
+                        subTotal += livro.preco
                         return(
                             <tr key={i}>
                                 <td><img src={livro.capaURL} alt={`capa do livro ${livro.titulo}`}/></td>
@@ -53,6 +57,10 @@ function Carrinho({ perfilEstaLogado }) {
                             </tr>
                         )
                     }):""}
+                    <tfoot>
+                        <td>Subtotal </td>
+                        <td>R$ {subTotal.toFixed(2)}</td>
+                    </tfoot>
                 </tbody>
             </Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
