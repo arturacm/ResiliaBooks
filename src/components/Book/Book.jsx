@@ -1,45 +1,47 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect,useState,useCallback} from 'react'
 import {useParams} from 'react-router-dom'
 
 function Book() {
     
-    const [livro, setLivro] = useState([])
+    const [livro, setLivro] = useState(false)
     const {id}=useParams()
-    
+    const url=(`http://localhost:3000/livros/${parseInt(id)}`)
 
     useEffect(()=>{
-       requisicao()
-      
-      
-                
- },[])
-
-
- function requisicao(){
-    fetch(`http://localhost:3000/livros/${parseInt(id)}`)
+    fetch(url)
     .then((res)=> res.ok?res.json():false)
     .catch(err=>console.log(err))
-    .then(res=> setLivro(res))}
-
+    .then(res=> {
+        setLivro(res)
+        console.log(res);
+    })
+ },[url])
+    //util
+    const mostrarLivro=useCallback(()=>{
+        if(livro){
+          return(
+              <>
+                <h1> {livro.titulo}</h1>
+                <img src={livro.capaURL} alt="Capa" />
+                <h1>{livro.autor.nome}</h1>
+                <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
+              </>
+          )  
+        }else{
+            return (
+                <h1>Carregando...</h1>
+            )
+        }
+    },[livro])
     return (
 
             <section className='container'>
                         <article>
-                            <h1> {livro.titulo}</h1>
-                            <img src={livro.capaURL} alt="Capa" />
-                            <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
                             
+                            {mostrarLivro()}
+
                         </article>  
              </section>
-    )      
-                
-                    
+    )                        
 }     
-                
-            
-           
-        
-    
-
-
 export default Book;
