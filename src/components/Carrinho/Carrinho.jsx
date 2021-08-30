@@ -26,6 +26,12 @@ function Carrinho({ perfilEstaLogado }) {
             setCarrinho(false)
             
         }
+        function removerDoCarrinho(indice){
+            const newCarrinho = carrinho.filter((livro, i)=> i!=indice)
+            localStorage.setItem("carrinho",JSON.stringify(newCarrinho))
+            setCarrinho(newCarrinho)
+            
+        }
     return (
         <section>
             <h1>Ola carrinho {perfilEstaLogado ? "bem vindo" : "logar agr"}</h1>
@@ -43,6 +49,7 @@ function Carrinho({ perfilEstaLogado }) {
                                 <td>{livro.titulo}</td>
                                 <td>{livro.autor.nome}</td>
                                 <td>{livro.preco}</td>
+                                <td><button onClick={()=>removerDoCarrinho(i)}>Remover</button></td>
                             </tr>
                         )
                     }):""}
