@@ -1,4 +1,5 @@
 import React, {useEffect,useState} from 'react'
+import {Link} from 'react-router-dom'
 import './Books.css'
 function Books() {
     const [livros, setLivros] = useState([])
@@ -18,11 +19,11 @@ function Books() {
                 
                 return(
                     
-                    <article className="artigo">
+                    <article key={item.id} className="artigo">
                         <h3>{item.titulo}</h3>
              <img src={item.capaURL} alt="capa do Livro" className="img" />
+             <Link to={`/livro/${item.id}`}>Acessar</Link>
              
-             <button >Acessar</button>
                     </article>
                     
                     

@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer'
 import Login from './components/Login/Login'
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import Books from './components/Books/Books';
-
+import Book from './components/Book/Book';
 
 function App() {
   return (
@@ -19,6 +19,13 @@ function App() {
               <Books/>
             </main>
 
+          </Route>
+          <Route exact path='/livro/:id'>
+          <main>
+              
+              <Book/>
+            </main>
+           
           </Route>
           <Route path="/login" exact>
 
