@@ -12,27 +12,28 @@ const Livro = styled.section`
 `
 
 function Book() {
-    
+  
     const [livro, setLivro] = useState(false)
     const {id}=useParams()
     
 
     useEffect(()=>{
-       requisicao()
+        const requisicao= async()=>{
+            await fetch(`http://localhost:3000/livros/${parseInt(id)}`)
+            .then((res)=> res.ok?res.json():false)
+            .catch(err=>console.log(err))
+            .then(res=> {
+                setLivro(res)
+                console.log(res);
+            })}
+        requisicao();
       
       
                 
- },[])
+ },[id])
 
 
- function requisicao(){
-    fetch(`http://localhost:3000/livros/${parseInt(id)}`)
-    .then((res)=> res.ok?res.json():false)
-    .catch(err=>console.log(err))
-    .then(res=> {
-        setLivro(res)
-        console.log(res);
-    })}
+ 
     function mostrarLivro(){
         if(livro){
           return(

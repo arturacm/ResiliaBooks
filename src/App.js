@@ -9,6 +9,7 @@ import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import MyBooks from './components/MyBooks/MyBooks';
 import Carrinho from "./components/Carrinho/Carrinho";
+import BaseDeLivros from './components/Base-de-livros/Base-de-livros';
 
 function App() {
 
@@ -63,10 +64,11 @@ function App() {
           <Route path="/base-de-livros" exact>
           
             <main>
-              <h1>
-              pagina para alterar a base de livros, permitido apenas para o admin
-              </h1>
-              <h2>
+             {usuarioLocal === 'admin'?
+             <BaseDeLivros/>:
+             <h1>Entre como admin</h1>}
+              
+               <h2>
                 Você é admin? {usuarioLocal === 'admin'?"SIM":"NÃO"}
               </h2>
             </main>
