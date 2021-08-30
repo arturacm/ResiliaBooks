@@ -53,7 +53,7 @@ function App() {
               <Login />
             </main>
           </Route>
-          <Route path="/meus-livros" exact>
+          <Route path="/meus-livros" perfilEstaLogado = {perfilEstaLogado} exact>
           
             <main>
               <MyBooks/>

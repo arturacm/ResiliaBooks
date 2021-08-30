@@ -18,7 +18,7 @@ const Livros = styled.section`
 
 `
 
-function MyBooks() {
+function MyBooks({perfilEstaLogado}) {
 
     const user = localStorage.getItem('user')
     const meusLivros = JSON.parse(localStorage.getItem(user))
@@ -28,7 +28,7 @@ function MyBooks() {
     return (
         <Livros>
             
-            {meusLivros.livros.map((livro,i)=>{
+            {perfilEstaLogado?meusLivros.livros.map((livro,i)=>{
                 return(
                     <div className="livro" key={i}>
                         <img src={livro.capaURL} alt={`imagem da capa do livro ${livro.titulo}`} />
@@ -40,7 +40,9 @@ function MyBooks() {
                         </p>
                     </div>
                 )
-            })}
+            }): (
+                <h1>Usuario não logado</h1>
+            )}
         </Livros>
     )
 }
