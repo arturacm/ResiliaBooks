@@ -33,6 +33,20 @@ function Book() {
         setLivro(res)
         console.log(res);
     })}
+
+    function adcCarrinho(livro){
+        
+        const carrinho = localStorage.getItem("carrinho")
+        console.log(carrinho)
+        if(carrinho){
+            const novoCarrinho = [...JSON.parse(carrinho),livro ]
+            localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
+        }else{
+            localStorage.setItem("carrinho", JSON.stringify([livro]))
+        }
+        console.log(localStorage.getItem("carrinho"))
+    }
+
     function mostrarLivro(){
         if(livro){
           return(
@@ -41,6 +55,7 @@ function Book() {
                 <img src={livro.capaURL} alt="Capa" />
                 <h1>{livro.autor.nome}</h1>
                 <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
+                <button onClick={()=>adcCarrinho(livro)}> Adcionar ao carrinho</button>
               </>
           )  
         }else{
@@ -50,14 +65,11 @@ function Book() {
         }
     }
     return (
-
-            <Livro>
-                        <article>
-                            
-                            {mostrarLivro()}
-
-                        </article>  
-             </Livro>
+        <Livro>
+            <article>                
+                {mostrarLivro()}
+            </article>  
+        </Livro>
     )      
                 
                     

@@ -79,6 +79,13 @@ function App() {
             </main>
 
           </Route>
+          <Route path="/carrinho" exact>
+
+            <main>
+              <Carrinho perfilEstaLogado = {perfilEstaLogado} />
+            </main>
+
+          </Route>
           <Route path="*">
             <main>
               <h1> 404 Not Found</h1>

@@ -82,7 +82,11 @@ function Header({perfilEstaLogado, ehAdmin}) {
                 <input type="text" placeholder="buscar livros"/>
             </nav>
             {logar()}
-            <nav>meu carrinho</nav>
+            <nav>
+                <Link to="/carrinho">
+                    Meu Carrinho 
+                </Link>
+            </nav>
         </Cabecalho>
     )
 }
