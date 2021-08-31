@@ -38,8 +38,9 @@ function Autores() {
   return (
     <div>
 
-
+   
 <form onSubmit={enviar} >
+  <h1>Novo Autor</h1>
             <input placeholder="Digite o Nome" type="text"  value={nome}name="nome" onChange={(e)=>
             setNome(e.target.value)}/>
             <input placeholder="Digite a Nacionalidade" value={nacionalidade} type="text" name="nacionalidade" onChange={(e)=>

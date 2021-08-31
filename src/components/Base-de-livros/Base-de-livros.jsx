@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 function Base() {
 const [livros, setLivros]=useState([])
 
@@ -29,6 +30,8 @@ req();
 
             })}
            
+           <Link to="/base-de-livros/Autores/"> Acessar autores</Link> <br/>
+           <Link to="/base-de-livros/Generos/"> Acessar Generos</Link>
 
             </ul>
         </div>
