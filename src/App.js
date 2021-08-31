@@ -9,6 +9,7 @@ import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import MyBooks from './components/MyBooks/MyBooks';
 import Carrinho from "./components/Carrinho/Carrinho";
+import PurchaseSuccessfull from './components/PurchaseSuccessfull/PurchaseSuccessfull';
 
 function App() {
 
@@ -83,6 +84,13 @@ function App() {
 
             <main>
               <Carrinho perfilEstaLogado = {perfilEstaLogado} />
+            </main>
+
+          </Route>
+          <Route path="/compra-sucesso" exact>
+
+            <main>
+              <PurchaseSuccessfull />
             </main>
 
           </Route>

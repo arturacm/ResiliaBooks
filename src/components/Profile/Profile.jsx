@@ -21,7 +21,7 @@ function Profile({ehAdmin}) {
             logout();
         }else{
             localStorage.removeItem(localStorage.getItem('user'));
-            window.location = "/login";
+            logout()    
         }
         
     }

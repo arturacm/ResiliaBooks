@@ -44,6 +44,21 @@ function Carrinho({perfilEstaLogado}) {
             return false;
         }
     }
+    function finalizarCompra(){
+        alert(`O Subtotal foi de ${subTotal}`);
+        const respostaDoUsuario = prompt(`Deseja confirmar a compra?
+        Digite Sim ou Não`);
+        if(respostaDoUsuario.toLocaleLowerCase() === 'sim'){
+            const meusLivros = JSON.parse(localStorage.getItem(user))
+            meusLivros.livros = [...meusLivros.livros, ... carrinho]
+            console.log(meusLivros);
+            localStorage.setItem(user,JSON.stringify(meusLivros))
+            limparCarrinho()
+            window.location = '/compra-sucesso';
+        }else{
+            alert("Compra Cancelada")
+        }
+    }
     return (
         <section>
             <h1>Ola carrinho {user ? user : "logar agr"}</h1>
@@ -76,7 +91,7 @@ function Carrinho({perfilEstaLogado}) {
                 </tbody>
             </Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
-            <button disabled={numLivros>0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
+            <button onClick ={finalizarCompra} disabled={numLivros>0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
         </section>
     )
 }
