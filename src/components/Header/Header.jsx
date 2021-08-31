@@ -21,8 +21,8 @@ img{
 
 
 function Header({perfilEstaLogado, ehAdmin}) {
-
-    console.log(ehAdmin)
+    console.log("perfilEstaLogado",perfilEstaLogado)
+    console.log("ehAdmin",ehAdmin)
     function logar(){
         if(perfilEstaLogado){
             if(ehAdmin){

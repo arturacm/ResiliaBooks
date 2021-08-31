@@ -17,7 +17,7 @@ function App() {
 
     let usuarioLocal = localStorage.getItem('user');
     
-    console.log("main renderizado")
+    console.log("perfilEstaLogado",perfilEstaLogado)
     useEffect(()=>{
         if(localStorage.getItem('user')){
             setPerfilEstaLogado(true)
