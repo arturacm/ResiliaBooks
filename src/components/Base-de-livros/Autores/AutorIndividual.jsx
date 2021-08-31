@@ -24,8 +24,8 @@ function Autor() {
     req();
   }, [url]);
 
- async function put(e){
-    e.preventDefault();
+ async function put(){
+    
        await axios.put(url,{nacionalidade,nome})
         .then(res => console.log(res))
         .catch((err)=> console.log(err))
@@ -33,7 +33,8 @@ function Autor() {
 async function del(){
         
          await axios.delete(url)
-        .then(res => console.log(res))
+        .then(res => {window.location="/base-de-livros/Autores"
+          console.log(res)})
         .catch((err)=> console.log(err))
     }
 
@@ -51,7 +52,7 @@ async function del(){
         </form> <br/>
 
 
-        <Link to="/base-de-livros/autor/">Voltar</Link>
+        <Link to="/base-de-livros/Autores/">Voltar</Link>
         <h3 >{autor.nome}</h3>
         <h3>{autor.nacionalidade}</h3> <br/>
         <button type="button" onClick={del}>Excluir</button>

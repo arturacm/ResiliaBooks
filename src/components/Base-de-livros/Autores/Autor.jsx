@@ -20,8 +20,8 @@ function Autores() {
     req();
   }, []);
 //post
- async function enviar(e){
-    e.preventDefault();
+ async function enviar(){
+   
     //const novo ={nome,nacionalidade}
     
      

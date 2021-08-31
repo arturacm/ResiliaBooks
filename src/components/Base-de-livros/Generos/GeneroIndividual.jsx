@@ -23,8 +23,8 @@ function Genero() {
     req();
   }, [url]);
 
- async function put(e){
-    e.preventDefault();
+ async function put(){
+    
        await axios.put(url,{genero})
         .then(res => console.log(res))
         .catch((err)=> console.log(err))
@@ -32,7 +32,8 @@ function Genero() {
 async function del(){
         
          await axios.delete(url)
-        .then(res => console.log(res))
+        .then(res =>{window.location="/base-de-livros/Generos"
+        console.log(res)})
         .catch((err)=> console.log(err))
     }
 
