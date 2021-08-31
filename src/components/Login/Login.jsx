@@ -22,8 +22,11 @@ function Login() {
         
         if (user === 'admin'){
             localStorage.setItem('user',user);
+            localStorage.setItem(user,JSON.stringify({
+                livros : []
+            }))
             alert("login de administrador");
-            window.location = "/"//gambiarra momentanea
+            window.location = "/"
         }else{
             imageExists(imageUrl,(existe)=>{
                 if(existe){
@@ -41,7 +44,7 @@ function Login() {
                     // setUser(imageUrl)
                     alert(`Bem vindo ${e.target[0].value}!`);
     
-                    window.location = "/"//gambiarra momentanea
+                    window.location = "/"
                     
                 } else{
                     alert("Github invalido")

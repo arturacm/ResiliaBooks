@@ -76,7 +76,7 @@ function Carrinho({perfilEstaLogado}) {
                 </tbody>
             </Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
-            <button disabled={numLivros>0}>Finalizar a Compra</button>
+            <button disabled={numLivros>0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
         </section>
     )
 }
