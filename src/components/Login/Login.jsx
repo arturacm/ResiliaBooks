@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import imageExists from 'image-exists'
+import {Alert} from 'react-st-modal'
 
 const Formulario = styled.form`
     display: flex;
@@ -12,11 +13,9 @@ function Login() {
 
     // const [user,setUser] = useState(false)
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         const user = e.target[0].value;
-
-        console.log(user);
 
         const imageUrl = `https://github.com/${user}.png`;
         
@@ -25,7 +24,10 @@ function Login() {
             localStorage.setItem(user,JSON.stringify({
                 livros : []
             }))
-            alert("login de administrador");
+             
+            await Alert('login de administrador', '');
+              
+            
             window.location = "/"
         }else{
             imageExists(imageUrl,(existe)=>{
@@ -42,12 +44,12 @@ function Login() {
                        console.log("um livro criado como placeholder")
                    }
                     // setUser(imageUrl)
-                    alert(`Bem vindo ${e.target[0].value}!`);
-    
-                    window.location = "/"
+                   const oi =  async ()=> await Alert(`Bem vindo ${e.target[0].value}!`, '');
+                   oi().then(()=> window.location = "/")
+                    
                     
                 } else{
-                    alert("Github invalido")
+                    Alert('Github invalido', '');
                 }
             })
         }

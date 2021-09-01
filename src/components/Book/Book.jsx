@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import {useParams} from 'react-router-dom'
 import styled from 'styled-components'
+import { Alert } from 'react-st-modal'
 
 const Livro = styled.section`
     display: flex;
@@ -34,27 +35,26 @@ function Book() {
         console.log(res);
     })}
 
-    function adcCarrinho(livro){
+    async function adcCarrinho(livro){
         
         const carrinho = localStorage.getItem("carrinho")
-        console.log(carrinho)
         if(carrinho){
             const livroObj = JSON.parse(carrinho)
-            console.log(livroObj)
 
             const livroEstaNoCarrinho = livroObj.reduce((acum,liv, i)=>liv.id===livro.id?true:acum,false)
 
             if(livroEstaNoCarrinho){
-                alert("Este livro já está no seu carrinho")
+                await Alert("Este livro já está no seu carrinho","")
+                //alert("Este livro já está no seu carrinho")
 
             }else{
                 const novoCarrinho = [...livroObj,livro ]
                 localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
-                alert("Livro adicionado ao carrinho com sucesso!")
+                await Alert("Livro adicionado ao carrinho com sucesso!","")
             }
         }else{
             localStorage.setItem("carrinho", JSON.stringify([livro]))
-            alert("Livro adicionado ao carrinho com sucesso!")
+            await Alert("Livro adicionado ao carrinho com sucesso!","")
         }
     }
 

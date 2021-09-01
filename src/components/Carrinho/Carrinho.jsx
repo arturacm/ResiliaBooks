@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
+import { Confirm, Alert } from 'react-st-modal'
 
 const Tabela = styled.table`
 img{
@@ -45,19 +46,13 @@ function Carrinho({perfilEstaLogado}) {
         }
     }
     function finalizarCompra(){
-        alert(`O Subtotal foi de ${subTotal}`);
-        const respostaDoUsuario = prompt(`Deseja confirmar a compra?
-        Digite Sim ou Não`);
-        if(respostaDoUsuario.toLocaleLowerCase() === 'sim'){
-            const meusLivros = JSON.parse(localStorage.getItem(user))
-            meusLivros.livros = [...meusLivros.livros, ... carrinho]
-            console.log(meusLivros);
-            localStorage.setItem(user,JSON.stringify(meusLivros))
-            limparCarrinho()
-            window.location = '/compra-sucesso';
-        }else{
-            alert("Compra Cancelada")
-        }
+        const meusLivros = JSON.parse(localStorage.getItem(user))
+        meusLivros.livros = [...meusLivros.livros, ... carrinho]
+        console.log(meusLivros);
+        localStorage.setItem(user,JSON.stringify(meusLivros))
+        limparCarrinho()
+        window.location = '/compra-sucesso';
+        
     }
     return (
         <section>
@@ -91,7 +86,19 @@ function Carrinho({perfilEstaLogado}) {
                 </tbody>
             </Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
-            <button onClick ={finalizarCompra} disabled={numLivros>0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
+            <button onClick ={async () => {
+          const result = await Confirm(`O Subtotal foi de R$ ${subTotal.toFixed(2)}`, 
+            'Deseja confirmar a compra?');
+          
+          if (result) {
+            finalizarCompra()
+          } else {
+            await Alert('Sua compra foi cancelada', '');
+          }
+            
+            }} 
+            
+            disabled={numLivros>0||subTotal==0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
         </section>
     )
 }
