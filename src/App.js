@@ -9,11 +9,10 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import MyBooks from "./components/MyBooks/MyBooks";
 import Carrinho from "./components/Carrinho/Carrinho";
-import BaseDeLivros from "./components/Base-de-livros/Base-de-livros";
 import Autores from "./components/Base-de-livros/Autores/Autor";
-import Autor from "./components/Base-de-livros/Autores/AutorIndividual";
+import Autor from "./components/Base-de-livros/Autores/PutDeleteAutor";
 import Generos from "./components/Base-de-livros/Generos/Generos";
-import Genero from "./components/Base-de-livros/Generos/GeneroIndividual";
+import Genero from "./components/Base-de-livros/Generos/PutDeleteGenero";
 import Livros from "./components/Base-de-livros/Livros/Livros";
 import Livro from "./components/Base-de-livros/Livros/LivroIndividual";
 function App() {
@@ -65,48 +64,40 @@ function App() {
               <MyBooks />
             </main>
           </Route>
-          <Route path="/base-de-livros" exact>
+          <Route path="/base-de-livros/Livros" exact>
             <main>
               {usuarioLocal === "admin" ? (
-                <BaseDeLivros />
+                <Livros />
               ) : (
                 <h1>Entre como admin</h1>
               )}
             </main>
           </Route>
+          <Route path="/base-de-livros/Livros/:id" exact>
+            <main>
+              <Livro/>
+            </main>
+          </Route>       
           <Route path="/base-de-livros/Autores" exact>
             <main>
               <Autores/>
+            </main>
+          </Route>
+          <Route path="/base-de-livros/Autor/:id" exact>
+            <main>
+              <Autor/>
             </main>
           </Route>
           <Route path="/base-de-livros/Generos" exact>
             <main>
               <Generos/>
             </main>
-          </Route>
-
-          <Route path="/base-de-livros/Autor/:id" exact>
-            <main>
-              <Autor/>
-            </main>
-          </Route>
+          </Route>        
           <Route path="/base-de-livros/Genero/:id" exact>
             <main>
               <Genero/>
             </main>
-          </Route>
-          <Route path="/base-de-livros/Livros/" exact>
-            <main>
-              <Livros/>
-            </main>
-          </Route>
-
-         
-          <Route path="/base-de-livros/Livros/:id" exact>
-            <main>
-              <Livro/>
-            </main>
-          </Route>
+          </Route>                       
           <Route path="/perfil" exact>
             <main>
               <Profile ehAdmin={usuarioLocal === "admin"} />
