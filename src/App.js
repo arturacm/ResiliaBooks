@@ -14,7 +14,7 @@ import Autor from "./components/Base-de-livros/Autores/PutDeleteAutor";
 import Generos from "./components/Base-de-livros/Generos/Generos";
 import Genero from "./components/Base-de-livros/Generos/PutDeleteGenero";
 import Livros from "./components/Base-de-livros/Livros/Livros";
-import Livro from "./components/Base-de-livros/Livros/LivroIndividual";
+import Livro from "./components/Base-de-livros/Livros/PutDeleteLivro";
 function App() {
   const [perfilEstaLogado, setPerfilEstaLogado] = useState(false);
   const user = localStorage.getItem("user");

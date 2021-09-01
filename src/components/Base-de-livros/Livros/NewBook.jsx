@@ -9,7 +9,7 @@ function NovoLivro(){
   const [preco, setPreco] = useState();
   const [capaURL, setCapa] = useState();
   const [genId, setGenId] = useState();
-  const [AutorId, setAutorId] = useState();
+  const [AutorId, setAutorId] = useState([]);
   const [generos, setGeneros] = useState([]);
 
   "/base-de-livros/livros"
@@ -57,7 +57,7 @@ async function enviar() {
                 name={item.genero}
                 value={item.genero}
               />
-              <label for={item.genero}>{item.genero}</label>
+              <label >{item.genero}</label>
             </div>
           );
         })}
