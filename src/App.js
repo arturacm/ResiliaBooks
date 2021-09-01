@@ -11,6 +11,15 @@ import MyBooks from './components/MyBooks/MyBooks';
 import Carrinho from "./components/Carrinho/Carrinho";
 
 function App() {
+  const [preLoad, setPreLoad] = useState("loadingTrue");
+  const [conteudo, setConteudo] = useState("invisivel");
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setPreLoad("invisivel");
+      setConteudo("visivel");
+    }, 3000);
+  });
 
     const[perfilEstaLogado, setPerfilEstaLogado] = useState(false)
     const user = localStorage.getItem('user')
@@ -28,6 +37,9 @@ function App() {
 
   return (
     <div className="App">
+    <div className={preLoad}>
+    </div>
+      <div className={conteudo}>
       <BrowserRouter>
         <Header perfilEstaLogado = {perfilEstaLogado} ehAdmin = {user === 'admin'}/>
         <Switch>
@@ -94,6 +106,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
+      </div>
     </div>
   );
 }

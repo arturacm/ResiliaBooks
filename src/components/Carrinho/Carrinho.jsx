@@ -1,11 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components'
+import style from './estilo';
 
-const Tabela = styled.table`
-img{
-    max-width:100px
-}
-`
 
 function Carrinho({ perfilEstaLogado }) {
     const [carrinho, setCarrinho] = useState(false);
@@ -27,29 +22,34 @@ function Carrinho({ perfilEstaLogado }) {
             
         }
     return (
-        <section>
+        <style.Secao>
             <h1>Ola carrinho {perfilEstaLogado ? "bem vindo" : "logar agr"}</h1>
-            <Tabela>
+            <style.Tabela>
                 <thead>
-                    <th>Item</th>
-                    <th>Item</th>
-                    <th>Preço</th>
+                    <th>Capa</th>
                 </thead>
                 <tbody>
                     {carrinho?carrinho.map((livro,i)=>{
                         return(
                             <tr key={i}>
-                                <td><img src={livro.capaURL} alt={`capa do livro ${livro.titulo}`}/></td>
-                                <td>{livro.titulo}</td>
-                                <td>{livro.autor.nome}</td>
-                                <td>{livro.preco}</td>
+                                <td className="info">
+                                    <div className="imgLivroCarrinho">
+                                        <img src={livro.capaURL} alt={`capa do livro ${livro.titulo}`}/>
+                                    </div>
+                                    <div className="infoLivro">
+                                        <h2>{livro.titulo}</h2>
+                                        <h3>{livro.autor.nome}</h3>
+                                        <span>{livro.preco}</span>
+                                    </div>
+                                </td>
+                                
                             </tr>
                         )
                     }):""}
                 </tbody>
-            </Tabela>
+            </style.Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
-        </section>
+        </style.Secao>
     )
 }
 export default Carrinho;
