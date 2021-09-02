@@ -76,7 +76,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
             if (ehAdmin) {
                 return (
                     <>
-                        <Link to="/base-de-livros">
+                        <Link to="/base-de-livros/livros">
                             <nav>
                                 Base de Livros
                             </nav>
