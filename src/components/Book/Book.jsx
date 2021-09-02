@@ -5,10 +5,44 @@ import styled from 'styled-components'
 const Livro = styled.section`
     display: flex;
     justify-content: center;
-
-    img{
-        max-width:300px
+    .Titulolivro{
+    text-transform:uppercase;
+    text-align: center;
+    font-weight: bold;
     }
+    img{
+        max-width:250px
+        }
+    .Autor1{
+        text-transform:uppercase;
+        text-align: center;
+        font-size: 12px;
+
+    } 
+    .preço1{
+        color:Red;
+        font-weight: bold;
+        text-transform:uppercase;
+        text-align: center;
+        font-size: 25px;
+        animation: zoomIn 1.3s linear both;
+        
+        }
+    
+    @keyframes zoomIn {
+    from {
+    transform: scale(0.4)
+    }
+    to {
+    transform: scale(1);
+    }
+}
+    
+.preço1:hover{
+ color:#880808;
+ text-shadow: 0.5px 0.5px 5px #fc0303;   
+}
+        
 `
 
 function Book() {
@@ -38,10 +72,10 @@ function Book() {
         if(livro){
           return(
               <>
-                <h1> {livro.titulo}</h1>
+                <h1 className="Titulolivro" >{livro.titulo} </h1>
                 <img src={livro.capaURL} alt="Capa" />
-                <h1>{livro.autor.nome}</h1>
-                <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
+                <h1 className="Autor1">{livro.autor.nome}</h1>            
+                <p className="preço1"> Apenas R$ {parseInt(livro.preco).toFixed(2)}</p>
               </>
           )  
         }else{

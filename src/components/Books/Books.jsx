@@ -13,6 +13,14 @@ display: flex;
 img{
     max-width:200px
 }
+.Titulo1{
+    text-transform:uppercase;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
 `
 
 function Books() {
@@ -34,7 +42,7 @@ function Books() {
                 return(
                     
                     <article key={item.id} className="artigo">
-                        <h3>{item.titulo}</h3>
+                        <h3 className="Titulo1">{item.titulo}</h3>
              <img src={item.capaURL} alt="capa do Livro" className="img" />
              <Link to={`/livro/${item.id}`}>Acessar</Link>
              

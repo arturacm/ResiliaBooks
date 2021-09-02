@@ -40,7 +40,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <main>
-              <h1>Bem vindo {user} </h1>
+              <h1>Bem vindo Resiliente! {user} </h1>
               <Books />
             </main>
           </Route>
