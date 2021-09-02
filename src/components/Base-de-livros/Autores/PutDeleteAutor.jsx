@@ -2,23 +2,40 @@ import React, { useEffect, useState} from "react";
 import {Link,useParams} from 'react-router-dom'
 import axios from "axios";
 import styled from "styled-components";
+import Button from "../../Button/Button";
+
 
 const Div=styled.section`
 display: flex; 
+flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100%;
 height: 100%;
 
 form{
+  padding: 5px;
   display: flex;
   flex-direction: column;
+  justify-content:space-around;
   align-items: center;
   background-color: #f5f3db;
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 60%;
   border-radius: 20px;
 }
+Button{
+  cursor: pointer;
+}
+.botoes{
+ 
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
 h1{
   margin: 1vh;
 }
@@ -30,30 +47,15 @@ background: #9b0202;
 border-radius: 30px;
 color: white;
 font-weight: bold;
-margin-right: 2vw;
-
 }
-.btnVoltar{
-background: #f0cc02;
-border-radius: 30px;
-color: #050505;
-font-weight: bold;
-
-}
-
-.btnForm{
-background: #000000;
-border-radius: 30px;
-color: white;
-font-weight: bold;
-
+.autor{
+  display: flex;
+  flex-direction: column;
 }
 
 
-.Link{
-  
-  margin: 2px;
-}
+
+
 
 
 `
@@ -99,13 +101,15 @@ async function del(){
     
        
             <Div>
+               <h2>Atualizar autor</h2>
+
              <form onSubmit={put} >
-               <section>
-               <h3>Atualizar autor</h3>
-                   <h3 >{autor.nome} {autor.nacionalidade}</h3>
-                   
+                   <section className="autor">
+                   <h3 > Nome: {autor.nome}</h3> 
+                   <h3>Nacionalidade: {autor.nacionalidade}</h3>
+                   </section>
                  
-                 </section>
+               
                  <section>
             <input placeholder="Digite o Nome" required type="text"  value={nome}name="nome" onChange={(e)=>
             setNome(e.target.value)}/>
@@ -113,10 +117,15 @@ async function del(){
             setNac(e.target.value)}/>
             </section>
             <section>
-            <button type="button" className="btnExl" onClick={del}>Excluir</button>
-            <button className="btnForm" type="submit">Editar</button>
-            <Link to="/base-de-livros/Autores/"><button class="btnVoltar">Voltar</button></Link>
+            
             </section> <br/>
+            
+            <section className="botoes">
+            <Button type="button" className="btnExl" onClick={del}>Excluir</Button>
+            <Button className="btnForm" type="submit">Editar</Button>
+            <Link to="/base-de-livros/Autores/"><Button class="btnVoltar">Voltar</Button></Link>
+      </section>
+       
             
         </form> <br/>
 

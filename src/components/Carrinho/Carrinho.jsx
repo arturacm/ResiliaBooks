@@ -50,7 +50,7 @@ function Carrinho({perfilEstaLogado}) {
     }
     function finalizarCompra(){
         const meusLivros = JSON.parse(localStorage.getItem(user))
-        meusLivros.livros = [...meusLivros.livros, ... carrinho]
+        meusLivros.livros = [...meusLivros.livros, ...carrinho]
         console.log(meusLivros);
         localStorage.setItem(user,JSON.stringify(meusLivros))
         limparCarrinho()
@@ -101,7 +101,7 @@ function Carrinho({perfilEstaLogado}) {
             
             }} 
             
-            disabled={numLivros>0||subTotal==0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</Button>
+            disabled={numLivros>0||subTotal===0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</Button>
         </section>
     )
 }

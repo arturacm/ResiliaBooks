@@ -18,37 +18,45 @@ form{
   justify-content: space-around;
   align-items: center;
   background-color: #f5f3db;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   border-radius: 20px;
 }
-h1{
-  margin: 1vh;
+.botoes{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
 }
+.botoes button{
+  cursor: pointer;
+}
+
 input{
   margin:1vh;
+  text-align: center;
 }
 
 .listagem-autores{
-  background-color: #f5f3db;
+  
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 80%;
   height: 30%;
   align-items: baseline;
-  border-radius: 20px;
+  
 }
 .itens-Listagem{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  
-
+ 
 }
-.Link{
-  text-decoration: none;
-  margin: 2px;
+ a {
+  color: black;
+  font-weight: bold;
 }
 
 
@@ -100,20 +108,21 @@ function Autores() {
             setNac(e.target.value)}/>
             
             <section className="listagem-autores">
-        <h3>Autores</h3>
+        
         <div className="itens-Listagem">
         {autores.map((item) => {
           return (
             
-            <Link key={item.id} className="Link" to={`/base-de-livros/autor/${item.id}`}>{item.nome}</Link>
+            <Link key={item.id}  to={`/base-de-livros/autor/${item.id}`}>{item.nome}</Link>
             
           );
         })}
         </div>
       </section>
-      
+      <section className="botoes">
       <Button type="submit">Adicionar</Button>
       <Link to="/base-de-livros/livros"> <Button type="button">Voltar</Button></Link>
+      </section>
         </form> <br/>
 
 

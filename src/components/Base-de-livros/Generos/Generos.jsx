@@ -2,47 +2,63 @@ import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import axios from "axios";
 import styled from "styled-components";
+import Button from "../../Button/Button";
 
 const Div=styled.section`
 display: flex; 
+flex-direction: column;
 justify-content: space-around;
 align-items: center;
 width: 100%;
 height: 100%;
 
 form{
+  padding: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: #f5f3db;
-  width: 20%;
-  height: 30%;
+  width: 50%;
+  height: 60%;
   border-radius: 20px;
 }
 h1{
   margin: 1vh;
 }
 input{
-  margin:1vh;
+  text-align: center;
 }
-button{
-background: #000000;
-border-radius: 30px;
-color: white;
-font-weight: bold;
-
+.botoes button{
+  cursor: pointer;
 }
 .listagem-autores{
-  background-color: #f5f3db;
+  
+  display: flex;
+  flex-direction: column;
+  
+  width: 80%;
+  height: 30%;
+  align-items: baseline;
+  
+}
+.itens-Listagem{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 15vw;
-  height: 20vh;
-  align-items: center;
-  border-radius: 20px;
+ 
 }
+a {
+  color: black;
+  font-weight: bold;
+}
+.botoes{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
+}
 .Link{
   text-decoration: none;
   margin: 2px;
@@ -85,26 +101,40 @@ function Generos() {
   return (
     <Div>
 
-
+<h1>Novo Genero</h1>
 <form onSubmit={enviar} >
-    <h1>Novo Genero</h1>
+    
             <input required placeholder="Digite o genero" type="text"  value={genero} name="genero" onChange={(e)=>
             setGenero(e.target.value)}/>
             
-            <button type="submit">Adicionar</button>
+
+
+
+            <section className="listagem-autores">
+        
+        <div className="itens-Listagem">
+            {generos.map((item) => {
+            return (
+            
+              
+              <Link key={item.id} to={`/base-de-livros/genero/${item.id}`}>{item.genero} </Link>
+           
+                 );
+            })}
+            </div>
+      </section>
+
+            <section className="botoes">
+            
+            <Button className="btnForm" type="submit">Criar</Button>
+            <Link to="/base-de-livros/Livros/"><Button class="btnVoltar">Voltar</Button></Link>
+      </section>
+
+
         </form> <br/>
 
 
-      <ul >
-        {generos.map((item) => {
-          return (
-            <li key={item.id}>
-              
-              <Link to={`/base-de-livros/genero/${item.id}`}>{item.genero} </Link>
-            </li>
-          );
-        })}
-      </ul>
+        
 
       
     </Div>

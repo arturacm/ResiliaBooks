@@ -10,6 +10,8 @@ const Section=styled.section`
 display: flex;
 width: 100%;
 
+
+
 img{
   width: 200px;
   height: 300px;
@@ -51,16 +53,16 @@ function Livros() {
 
   return (
     <div>
-      <div style={{"display":"flex"}}>
+       <div style={{"display":"flex"}}>
         <Link to="/base-de-livros/Autores/"><Button>Acessar autores</Button> </Link>
         <Link to="/base-de-livros/Generos/"><Button> Acessar Generos</Button></Link>
       </div>
 
       <Section>
-        
+     
       <ul className="lista">
       <Link to={`/base-de-livros/new-book`}>
-                <img src={novaImg} alt="Novoooo Livroooooo" /> 
+                <img src={novaImg} alt="Novo livro" /> 
               </Link>  
         {livros.map((item) => {
           return (

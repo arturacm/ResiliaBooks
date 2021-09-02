@@ -2,9 +2,11 @@ import React, { useEffect, useState} from "react";
 import {Link,useParams} from 'react-router-dom'
 import axios from "axios";
 import styled from "styled-components";
+import Button from "../../Button/Button";
 
 const Div=styled.section`
 display: flex; 
+flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100%;
@@ -14,12 +16,24 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   background-color: #f5f3db;
   width: 50%;
   height: 50%;
   border-radius: 20px;
 }
-h1{
+.botoes{
+ 
+ width: 50%;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+
+}
+.botoes button {
+  cursor: pointer;
+}
+h2{
   margin: 1vh;
 }
 input{
@@ -30,7 +44,7 @@ background: #9b0202;
 border-radius: 30px;
 color: white;
 font-weight: bold;
-margin-right: 2vw;
+
 
 }
 .btnVoltar{
@@ -98,25 +112,23 @@ async function del(){
        
             <Div>
 
-              
+<h2>Atualizar Generos</h2>
              <form onSubmit={put} >
 
-                 <h3>Atualizar Generos</h3> 
-                 <h3>{generos.genero}</h3>
+                  
+                 <h3> Genero: {generos.genero}</h3>
 
                  <section>
             <input required placeholder="Digite o genero" type="text"  value={genero}name="genero" onChange={(e)=>
             setGenero(e.target.value)}/>
             </section>
-            <section>
-            <button type="submit" className="btnForm">Editar</button>
-            <button type="button"  className="btnExl" onClick={del}>Excluir</button>
-        
-         <br/>
-         <Link to="/base-de-livros/Generos/"><button className="btnVoltar">Voltar</button></Link>
-        
-       </section>
-        
+           
+            <section className="botoes">
+            <Button type="button" className="btnExl" onClick={del}>Excluir</Button>
+            <Button className="btnForm" type="submit">Editar</Button>
+            <Link to="/base-de-livros/Generos/"><Button class="btnVoltar">Voltar</Button></Link>
+      </section>
+      
         </form> <br/>
 
 
