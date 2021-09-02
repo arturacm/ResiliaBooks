@@ -5,11 +5,11 @@ const Livros = styled.section`
     width:80%;
     display:flex;
 
-
     .livro{
         
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        margin: 20px;
         
     }
     .livro img{

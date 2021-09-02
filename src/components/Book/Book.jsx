@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Alert } from 'react-st-modal'
 import carrinho from "./../../assets/images/carrinho.jpg"
 
+
 const Livro = styled.section`
     display: flex;
     align-items:center;
@@ -72,7 +73,7 @@ button img{
 button:hover{
     transform: scale(1.05)
 }
-`
+`;
 
 function Book() {
 
