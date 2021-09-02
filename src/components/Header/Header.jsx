@@ -6,6 +6,7 @@ import lupa from "./../../assets/images/lupa.jpg";
 import coracao from './../../assets/images/favoritos.jpg';
 import login from './../../assets/images/login.jpg';
 import carrinho from './../../assets/images/carrinho.jpg';
+import livros from './../../assets/images/livros.png';
 
 const Cabecalho = styled.header`
 display: flex;
@@ -47,7 +48,7 @@ nav{
     margin-right:20px
 }
 
-}
+
 img{
     height:70px;
     width:70px;
@@ -95,7 +96,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                     <>
                         <Link to="/meus-livros">
                             <nav>
-                                <img src={coracao} alt="Meus Livros"/>
+                                <img src={livros} alt="Meus Livros"/>
                                 Meus Livros
                             </nav>
                         </Link>
