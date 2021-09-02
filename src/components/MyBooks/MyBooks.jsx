@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Livros = styled.section`
     width:80%;
     display:flex;
+    background-color: red;
 
     .livro{
         
