@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -59,8 +59,8 @@ const Div = styled.section`
   }
 `;
 
-function NewLivro() {
-  
+function Livro() {
+  const [livro, setLivro] = useState(false);
   const [titulo, setTitulo] = useState();
   const [preco, setPreco] = useState();
   const [capaURL, setCapa] = useState();
@@ -68,9 +68,18 @@ function NewLivro() {
   const [autor, setAutor] = useState();
   const [generos, setGeneros] = useState([]);
   const [autores, setAutores] = useState([]);
-  
+  const { id } = useParams();
 
+  useEffect(() => {
+    const requisicaoLivros = async () => {
+      await axios.get("http://localhost:3000/livros/" + id)
+      .then((res) => {
+        setLivro(res.data);
+        
+      });
+    };requisicaoLivros();
   
+  },[id])
   useEffect(() => {
     const req = async () => {
       await axios
@@ -101,29 +110,54 @@ function NewLivro() {
    requisicaoGeneros();
   },[])
 
- 
+  function mostrarLivro() {
+    if (livro) {
+      return (
+        <>
+          <h1> {livro.titulo}</h1>
+          <img src={livro.capaURL} alt="Capa" />
+          <h1>{livro.autor.nome}</h1>
+          <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
+          
+            
+        </>
+      );
+    } else {
+      return <h1>Carregando...</h1>;
+    }
+  }
 
   
-  async function newLivro() {
+  async function put() {
     const generos=genero;
     const autorId=autor
     await axios
-      .post("http://localhost:3000/livros/", {
+      .put("http://localhost:3000/livros/" + id, {
         titulo,
         preco,
         capaURL,
         generos,
         autorId,
       })
-      .then((res) =>{window.location="/base-de-livros/Livros"})
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
-   
+  
+  async function del() {
+    await axios
+      .delete("http://localhost:3000/livros/" + id)
+      .then((res) => {
+        window.location = "/base-de-livros/Livros";
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }
+  
 
   return (
     <Div>
-      <form onSubmit={newLivro}>
-       <h1>Novo Livro</h1>
+      <form onSubmit={put}>
+        {mostrarLivro()}
           <section>
         <input
               placeholder="Digite o titulo"
@@ -154,7 +188,7 @@ function NewLivro() {
           
             <select value={autor} onChange={(e)=>setAutor(e.target.value)}>
            {autores.map((item)=>{
-           return( <option value={item.id} > {item.nome}</option>)
+           return( <option key={item.id} value={item.id} > {item.nome}</option>)
            })}
          </select>
          
@@ -177,9 +211,11 @@ function NewLivro() {
         
         <section>
         <button  type="submit">
-         Criar
+          Editar
         </button>
-        
+        <button onClick={del} type="button">
+          Deletar
+        </button>
         <Link to="/base-de-livros/Livros"><button>Voltar</button></Link>
         </section>
       </form>
@@ -187,4 +223,4 @@ function NewLivro() {
   );
 }
 
-export default NewLivro;
+export default Livro;
