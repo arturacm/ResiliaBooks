@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from './../../assets/images/logo.jpg';
-import lupa from "./../../assets/images/lupa.jpg";
-import coracao from './../../assets/images/favoritos.jpg';
 import login from './../../assets/images/login.jpg';
 import carrinho from './../../assets/images/carrinho.jpg';
 import livros from './../../assets/images/livros.png';
+import baseDeLivros from './../../assets/images/baseDeLivros.png';
 
 const Cabecalho = styled.header`
 display: flex;
@@ -52,7 +51,6 @@ nav{
 img{
     height:70px;
     width:70px;
-    border-radius:50%;
     margin-bottom:15px;
     margin-top:15px;
     transition: all 0.2s;
@@ -60,7 +58,10 @@ img{
 img:hover{
     transform:scale(1.1)
 }
-
+.imgPerfil{
+    
+    border-radius:50%;
+}
 .menu{
     display:flex;
     justify-content:space-between;
@@ -78,6 +79,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                     <>
                         <Link to="/base-de-livros/livros">
                             <nav>
+                                <img src={baseDeLivros} alt="logo base de livros"/>
                                 Base de Livros
                             </nav>
                         </Link>
@@ -102,7 +104,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                         </Link>
                         <Link to="/perfil">
                             <nav>
-                                <img src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" />
+                                <img className = "imgPerfil" src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" />
                                 Perfil
                             </nav>
                         </Link>

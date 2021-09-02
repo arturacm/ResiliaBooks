@@ -4,11 +4,12 @@ import styled from 'styled-components'
 
 const Livros = styled.section`
 display: flex;
+flex-flow: row wrap;
 
 .artigo{
     display: flex;
     flex-direction: column;
-    margin: 20px
+    margin: 20px;
 }
 img{
     max-width:200px
@@ -26,8 +27,7 @@ function Books() {
 
     },[])
 
-    return (
-     
+    return (  
             <Livros>
             {livros.map(item=>{
                 

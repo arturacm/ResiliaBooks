@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components'
+import novaImg from "./../../../assets/images/novaImg.png"
 
 const Section=styled.section`
 display: flex;
-
 width: 100%;
 
 img{
@@ -55,7 +55,7 @@ function Livros() {
         
       <ul className="lista">
       <Link to={`/base-de-livros/new-book`}>
-                <img src="" alt="Novoooo Livroooooo" /> 
+                <img src={novaImg} alt="Novoooo Livroooooo" /> 
               </Link>  
         {livros.map((item) => {
           return (
