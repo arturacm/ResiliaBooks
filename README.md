@@ -21,9 +21,9 @@ Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo
 ### Protótipo
 O protótipo foi feito no Figma e pode ser conferido no seguinte link (https://www.figma.com/file/iDfATWqWX1wuZfMs09NZ8F/ResiliaBooks?node-id=0%3A1). Optamos por fazer um prototipo antes para facilitar o trabalho da equipe.
 
-## Aprendemos e utilizamos: 
+# Aprendemos e utilizamos: 
 
-# useEffect
+### useEffect
 
 Recebe uma função e uma lista de dependências como parâmetros. Caso um parâmetro seja alterado, a função segue sendo executada normalmente, sendo que o retorno da função também pode ser uma função. 
 
@@ -45,7 +45,7 @@ Recebe uma função e uma lista de dependências como parâmetros. Caso um parâ
  
 Após renderização, é executado de forma assincrona.
 
-# Styled-Components
+### Styled-Components
 Utilizamos a biblioteca de forma a estilizar os componentes da nossa aplicação. 
 
 ` return (
