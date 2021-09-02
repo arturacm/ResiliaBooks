@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import { Confirm, Alert } from 'react-st-modal'
+import Button from './../Button/Button'
+
 
 const Tabela = styled.table`
 img{
     max-width:100px
 }
 `
+
 
 function Carrinho({perfilEstaLogado}) {
     const [carrinho, setCarrinho] = useState(false);
@@ -74,7 +77,7 @@ function Carrinho({perfilEstaLogado}) {
                                 <td>{livro.titulo}</td>
                                 <td>{livro.autor.nome}</td>
                                 <td>{livro.preco}</td>
-                                <td><button onClick={()=>removerDoCarrinho(i)}>Remover</button></td>
+                                <td><Button onClick={()=>removerDoCarrinho(i)}>Remover</Button></td>
                                 <td>{jaPossuiLivro(livro)?"Já possui":""} </td>
                             </tr>
                         )
@@ -85,8 +88,8 @@ function Carrinho({perfilEstaLogado}) {
                     </tfoot>
                 </tbody>
             </Tabela>
-            <button onClick={limparCarrinho}>Limpar Carrinho</button>
-            <button onClick ={async () => {
+            <Button onClick={limparCarrinho}>Limpar Carrinho</Button>
+            <Button onClick ={async () => {
           const result = await Confirm(`O Subtotal foi de R$ ${subTotal.toFixed(2)}`, 
             'Deseja confirmar a compra?');
           
@@ -98,7 +101,7 @@ function Carrinho({perfilEstaLogado}) {
             
             }} 
             
-            disabled={numLivros>0||subTotal==0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</button>
+            disabled={numLivros>0||subTotal==0 || !Boolean(user) || user === 'admin'}>Finalizar a Compra</Button>
         </section>
     )
 }
