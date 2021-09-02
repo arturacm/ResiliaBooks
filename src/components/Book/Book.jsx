@@ -126,7 +126,7 @@ function Book() {
                     <img src={livro.capaURL} alt="Capa" />
                     <h1 className="Autor1">{livro.autor.nome}</h1>
                     <p className="preço1">R$ {parseInt(livro.preco).toFixed(2)}</p>
-                    <button onClick={() => adcCarrinho(livro)}> Adcionar ao carrinho <img src={carrinho}/></button>
+                    <button onClick={() => adcCarrinho(livro)}> Adcionar ao carrinho <img alt="icone"  src={carrinho}/></button>
                 </>
             )
         } else {

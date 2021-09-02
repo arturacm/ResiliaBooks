@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-
+import Button from "../../Button/Button";
 const Div = styled.section`
   display: flex;
   justify-content: center;
@@ -10,15 +10,17 @@ const Div = styled.section`
   width: 100%;
   height: 100%;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f5f3db;
-    width: 50%;
-    height: 80%;
-    border-radius: 20px;
-  }
+  form{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f5f3db;
+  width: 40%;
+  height: 60%;
+  border-radius: 20px;
+}
 
   img {
     width: 15%;
@@ -31,18 +33,22 @@ const Div = styled.section`
   input {
     margin: 1vh;
   }
+  .botoes{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
+}
   button {
-    background: #000000;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
+   cursor: pointer;
   }
 .checkbox{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
 }  
 
 
@@ -50,13 +56,7 @@ const Div = styled.section`
     text-decoration: none;
     margin: 2px;
   }
-  .btnExl {
-    background: #9b0202;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-    margin-right: 2vw;
-  }
+ 
 `;
 
 function NewLivro() {
@@ -168,21 +168,17 @@ function NewLivro() {
             <input  type="checkbox" id={item.id} 
             onChange={(e)=>setGenero([...genero,parseInt(e.target.value)])}
             name={item.genero} value={item.id}/>
-             <label >{item.genero}</label>
+             <label for={item.id}>{item.genero}</label>
              </li>
           );
         })}
         </ul>
 </section>
         
-        <section>
-        <button  type="submit">
-         Criar
-        </button>
-        
-        <Link to="/base-de-livros/Livros"><button>Voltar</button>
-        </Link>
-        </section>
+<section className="botoes">
+      <Button type="submit">Adicionar</Button>
+      <Link to="/base-de-livros/livros"> <Button type="button">Voltar</Button></Link>
+      </section>
       </form>
     </Div>
   );

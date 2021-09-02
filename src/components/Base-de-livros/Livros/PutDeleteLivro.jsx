@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import Button from "../../Button/Button";
 
 const Div = styled.section`
   display: flex;
@@ -9,21 +10,33 @@ const Div = styled.section`
   align-items: center;
   width: 100%;
   height: 100%;
+  
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f5f3db;
-    width: 50%;
+    width: 60%;
     height: 80%;
     border-radius: 20px;
+    justify-content: space-around;
   }
+  Button{
+  cursor: pointer;
+}
+.botoes{
+ 
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
+}
   img {
     width: 15%;
     height: 15%;
-    border-radius: 100%;
+    
   }
   h1 {
     margin: 1vh;
@@ -32,17 +45,13 @@ const Div = styled.section`
     margin: 1vh;
   }
 
-  button {
-    background: #000000;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-  }
 .checkbox{
+  width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
 }  
 
 
@@ -115,7 +124,7 @@ function Livro() {
       return (
         <>
           <h1> {livro.titulo}</h1>
-          <img src={livro.capaURL} alt="Capa" />
+          
           <h1>{livro.autor.nome}</h1>
           <p>R$ {parseInt(livro.preco).toFixed(2)}</p>
           
@@ -171,9 +180,9 @@ function Livro() {
               placeholder="Digite o Preço"
               required
               value={preco}
-              type="number"
+              type="text"
               name="preco"
-              onChange={(e) => setPreco(parseInt(e.target.value))}
+              onChange={(e) => setPreco(e.target.value)}
             />
             <input
               placeholder="Digite a Capa"
@@ -202,22 +211,20 @@ function Livro() {
             <input  type="checkbox" id={item.id} 
             onChange={(e)=>setGenero([...genero,parseInt(e.target.value)])}
             name={item.genero} value={item.id}/>
-             <label >{item.genero}</label>
+             <label for ={item.id}>{item.genero}</label>
              </li>
           );
         })}
         </ul>
 </section>
         
-        <section>
-        <button  type="submit">
-          Editar
-        </button>
-        <button onClick={del} type="button">
-          Deletar
-        </button>
-        <Link to="/base-de-livros/Livros"><button>Voltar</button></Link>
-        </section>
+        
+        
+        <section className="botoes">
+            <Button type="button" className="btnExl" onClick={del}>Excluir</Button>
+            <Button className="btnForm" type="submit">Editar</Button>
+            <Link to="/base-de-livros/Livros/"><Button class="btnVoltar">Voltar</Button></Link>
+      </section>
       </form>
     </Div>
   );
