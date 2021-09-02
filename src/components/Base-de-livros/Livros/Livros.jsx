@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components'
 import novaImg from "./../../../assets/images/novaImg.png"
+import Button from "./../../Button/Button"
 
 const Section=styled.section`
 display: flex;
@@ -49,8 +50,10 @@ function Livros() {
 
   return (
     <div>
-
-
+        <div style={{"display":"flex"}}>
+      <Link to="/base-de-livros/Autores/"><Button>Acessar autores</Button> </Link> 
+      <Link to="/base-de-livros/Generos/"> <Button>Acessar Generos</Button></Link>
+        </div>
       <Section>
         
       <ul className="lista">
@@ -70,8 +73,7 @@ function Livros() {
       </ul>
            
       </Section>
-      <Link to="/base-de-livros/Autores/"> Acessar autores</Link> <br/> <br/>
-      <Link to="/base-de-livros/Generos/"> Acessar Generos</Link>
+      
     </div>
   );
 }

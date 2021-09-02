@@ -6,7 +6,8 @@ const Rodape = styled.footer`
 display: flex;
 flex-direction:column;
 align-items: center;
-border-top: solid black 50px;
+justify-content:center;
+border-top: solid black 30px;
 
 img{
     height: auto;
