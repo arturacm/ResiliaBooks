@@ -65,7 +65,7 @@ function Livro() {
   const [preco, setPreco] = useState();
   const [capaURL, setCapa] = useState();
   const [genero, setGenero] = useState([]);
-  const [autor, setAutor] = useState([]);
+  const [autor, setAutor] = useState();
   const [generos, setGeneros] = useState([]);
   const [autores, setAutores] = useState([]);
   const { id } = useParams();
@@ -75,7 +75,7 @@ function Livro() {
       await axios.get("http://localhost:3000/livros/" + id)
       .then((res) => {
         setLivro(res.data);
-        console.log(`OS Livros ${res.data}`);
+        
       });
     };requisicaoLivros();
   
@@ -85,7 +85,9 @@ function Livro() {
       await axios
         .get("http://localhost:3000/autores/")
         .then((response) => {
-          setAutores(response.data);
+          setAutores(response.data)
+          setAutor(response.data[0].id)
+          
         })
         .catch((error) => {
           console.log(error);
@@ -99,7 +101,7 @@ function Livro() {
         .get("http://localhost:3000/genero/")
         .then((response) => {
           setGeneros(response.data);
-          console.log(`OS generos ${response.data}`);
+          
         })
         .catch((error) => {
           console.log(error);
@@ -127,13 +129,15 @@ function Livro() {
 
   
   async function put() {
+    const generos=genero;
+    const autorId=autor
     await axios
       .put("http://localhost:3000/livros/" + id, {
         titulo,
         preco,
         capaURL,
-        genero,
-        autor,
+        generos,
+        autorId,
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
@@ -148,20 +152,8 @@ function Livro() {
       })
       .catch((err) => console.log(err));
   }
-  // function autores(){
-  //   const {aut} =autores
-  //   return(
-  //   aut.map((item) => {
-  //     return (
-        
-  //       <p>  {item.nome}</p>
-        
-  //     );
-  //   }))
-  // }
-function testes(){
-  console.log(genero)
-}
+  
+
   return (
     <Div>
       <form onSubmit={put}>
@@ -179,9 +171,9 @@ function testes(){
               placeholder="Digite o Preço"
               required
               value={preco}
-              type="text"
+              type="number"
               name="preco"
-              onChange={(e) => setPreco(e.target.value)}
+              onChange={(e) => setPreco(parseInt(e.target.value))}
             />
             <input
               placeholder="Digite a Capa"
@@ -194,11 +186,11 @@ function testes(){
           </section>
 
           
-            <ul>
+            <select value={autor} onChange={(e)=>setAutor(e.target.value)}>
            {autores.map((item)=>{
-             <li> {item.nome}</li>
+           return( <option key={item.id} value={item.id} > {item.nome}</option>)
            })}
-         </ul>
+         </select>
          
           
           
@@ -218,10 +210,10 @@ function testes(){
 </section>
         
         <section>
-        <button onClick={put} type="submit">
+        <button  type="submit">
           Editar
         </button>
-        <button onClick={testes} type="button">
+        <button onClick={del} type="button">
           Deletar
         </button>
         <Link to="/base-de-livros/Livros"><button>Voltar</button></Link>

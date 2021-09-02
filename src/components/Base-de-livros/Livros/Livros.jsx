@@ -31,28 +31,7 @@ function Livros() {
   
 
   useEffect(() => {
-    // const reqGeneros = async () => {
-    //   await axios
-    //     .get("http://localhost:3000/genero/")
-    //     .then((response) => {
-    //       setGeneros(response.data);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
-    // const reqAutores = async () => {
-    //   await axios
-    //     .get("http://localhost:3000/autores/")
-    //     .then((response) => {
-    //       setAutores(response.data);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
-
-    const reqLivros = async () => {
+       const reqLivros = async () => {
       await axios
         .get("http://localhost:3000/livros/")
         .then((response) => {
@@ -62,8 +41,7 @@ function Livros() {
           console.log(error);
         });
     };
-    // reqAutores();
-    // reqGeneros();
+   
     reqLivros();
   }, []);
 
@@ -76,7 +54,7 @@ function Livros() {
       <Section>
         
       <ul className="lista">
-      <Link to={`/base-de-livros/Livros/new-book`}>
+      <Link to={`/base-de-livros/new-book`}>
                 <img src="" alt="Novoooo Livroooooo" /> 
               </Link>  
         {livros.map((item) => {

@@ -15,6 +15,7 @@ import Generos from "./components/Base-de-livros/Generos/Generos";
 import Genero from "./components/Base-de-livros/Generos/PutDeleteGenero";
 import Livros from "./components/Base-de-livros/Livros/Livros";
 import Livro from "./components/Base-de-livros/Livros/PutDeleteLivro";
+import NewBook from "./components/Base-de-livros/Livros/NewBook"
 function App() {
   const [perfilEstaLogado, setPerfilEstaLogado] = useState(false);
   const user = localStorage.getItem("user");
@@ -77,7 +78,14 @@ function App() {
             <main>
               <Livro/>
             </main>
-          </Route>       
+          </Route>  
+
+          <Route path="/base-de-livros/new-book" exact>
+            <main>
+              <NewBook/>
+            </main>
+
+            </Route>     
           <Route path="/base-de-livros/Autores" exact>
             <main>
               <Autores/>
