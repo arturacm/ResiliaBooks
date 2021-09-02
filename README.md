@@ -70,6 +70,29 @@ Após renderização, é executado de forma assincrona.
 ### React Router Dom 
 Usado para navegar entre páginas diferentes da aplicação, pois, cada página é uma rota 
 
+`
+                
+                return(
+                    
+                    <article key={item.id} className="artigo">
+                        <h3 className="Titulo1">{item.titulo}</h3>
+                        <Link to={`/livro/${item.id}`}> <img src={item.capaURL} alt="capa do Livro" className="img" /></Link>
+           
+             
+                    </article>
+                    
+                    
+                )
+                
+            }
+            )}
+            </Livros>
+        
+    )
+
+
+`
+
 
 
 
