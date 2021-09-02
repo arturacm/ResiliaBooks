@@ -48,6 +48,7 @@ const Div = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
 }  
 
 
@@ -167,7 +168,7 @@ function NewLivro() {
             <input  type="checkbox" id={item.id} 
             onChange={(e)=>setGenero([...genero,parseInt(e.target.value)])}
             name={item.genero} value={item.id}/>
-             <label >{item.genero}</label>
+             <label for={item.id}>{item.genero}</label>
              </li>
           );
         })}
