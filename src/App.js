@@ -19,6 +19,22 @@ import Livro from "./components/Base-de-livros/Livros/PutDeleteLivro";
 import NewBook from "./components/Base-de-livros/Livros/NewBook";
 
 function App() {
+  //====================================================
+  //                ANIMAÇÃO DE PRELOAD
+  //====================================================
+    const [preLoad, setPreLoad] = useState("loading");
+    const [conteudo, setConteudo] = useState("conteudoInvisivel");
+    useEffect(()=>{
+      setTimeout(()=>{
+        setPreLoad("conteudoInvisivel");
+        setConteudo("conteudoVisivel");
+      }, 3000);
+    });
+
+
+  //====================================================
+
+
   const [perfilEstaLogado, setPerfilEstaLogado] = useState(false);
   const user = localStorage.getItem("user");
 
@@ -34,6 +50,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className={preLoad}>
+      </div>
+      <div className={conteudo}>
       <BrowserRouter>
         <Header
           perfilEstaLogado={perfilEstaLogado}
@@ -134,6 +153,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
+      </div>
     </div>
   );
 }

@@ -3,14 +3,16 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { Alert } from 'react-st-modal'
 
-const Livro = styled.section`
-    display: flex;
-    justify-content: center;
 
-    img{
-        max-width:300px
-    }
-`
+const Livro = styled.section`
+    
+display: flex;
+justify-content: center;
+
+img{
+    max-width:300px
+}
+`;
 
 function Book() {
 

@@ -6,11 +6,11 @@ const Rodape = styled.footer`
 display: flex;
 flex-direction:column;
 align-items: center;
-border-top: solid black 50px;
+border-top: solid black 40px;
 
 img{
     height: auto;
-    width:50px
+    width:50px;
 }
 `
 
