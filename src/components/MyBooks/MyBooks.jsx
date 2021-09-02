@@ -4,11 +4,15 @@ import styled from 'styled-components'
 const Livros = styled.section`
     width:80%;
     display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 
     .livro{
         
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        margin: 20px;
         
     }
     .livro img{

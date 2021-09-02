@@ -40,13 +40,16 @@ nav a, nav{
     border-radius:10px;
     
 }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 a:first-child{
     margin-left:15px;
 }
 nav{
     margin-right:20px
 }
-
 
 img{
     height:70px;
@@ -80,13 +83,13 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                         <Link to="/base-de-livros/livros">
                             <nav>
                                 <img src={baseDeLivros} alt="logo base de livros"/>
-                                Base de Livros
+                                <h2>Base de Livros</h2>
                             </nav>
                         </Link>
                         <Link to="/perfil">
                             <nav>
                                 <img src={`https://icon-library.com/images/icon-admin/icon-admin-0.jpg`} alt="Logo login ou foto usuario" />
-                                Perfil
+                                <h2>Perfil</h2>
                             </nav>
                         </Link>
                     </>
@@ -99,13 +102,13 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                         <Link to="/meus-livros">
                             <nav>
                                 <img src={livros} alt="Meus Livros"/>
-                                Meus Livros
+                                <h2>Meus Livros</h2>
                             </nav>
                         </Link>
                         <Link to="/perfil">
                             <nav>
                                 <img className = "imgPerfil" src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" />
-                                Perfil
+                               <h2> Perfil</h2>
                             </nav>
                         </Link>
                     </>
@@ -116,7 +119,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                 <Link to="/login">
                     <nav>
                         <img src={login} alt="Logo login" />
-                        Login
+                        <h2>Login</h2>
                     </nav>
                 </Link>
             )
@@ -129,7 +132,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                 <nav>
                     <Link to="/">
                         <img className="logo" src={logo} alt="logo"/>
-                        ResiliaBooks
+                        <h2>ResiliaBooks</h2>
                     </Link>
                 </nav>
                 <div className="menu">
@@ -137,7 +140,7 @@ function Header({ perfilEstaLogado, ehAdmin }) {
                     <nav>
                         <Link to="/carrinho">
                             <img src={carrinho} alt="Logo carrinho"/>
-                            Meu Carrinho
+                           <h2> Meu Carrinho</h2>
                         </Link>
                     </nav>
                 </div>

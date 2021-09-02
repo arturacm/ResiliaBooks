@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Div=styled.section`
 display: flex; 
-justify-content: space-around;
+justify-content: center;
 align-items: center;
 width: 100%;
 height: 100%;
@@ -15,8 +15,8 @@ form{
   flex-direction: column;
   align-items: center;
   background-color: #f5f3db;
-  width: 20%;
-  height: 30%;
+ max-width: 50%;
+  max-height: 50%;
   border-radius: 20px;
 }
 h1{
@@ -26,6 +26,7 @@ input{
   margin:1vh;
 }
 button{
+  cursor: pointer;
 background: #000000;
 border-radius: 30px;
 color: white;
@@ -89,16 +90,14 @@ function Autores() {
 
    
 <form onSubmit={enviar} >
-  <h1>Novo Autor</h1>
+  <h3>Novo Autor</h3>
+
             <input  required placeholder="Digite o Nome" type="text"  value={nome}name="nome" onChange={(e)=>
             setNome(e.target.value)}/>
             <input  required placeholder="Digite a Nacionalidade" value={nacionalidade} type="text" name="nacionalidade" onChange={(e)=>
             setNac(e.target.value)}/>
             <button type="submit">Adicionar</button>
-        </form> <br/>
-
-
-      <section className="listagem-autores">
+            <section className="listagem-autores">
         <h3>Autores</h3>
         <div className="itens-Listagem">
         {autores.map((item) => {
@@ -110,6 +109,10 @@ function Autores() {
         })}
         </div>
       </section>
+        </form> <br/>
+
+
+      
     </Div>
   );
 }

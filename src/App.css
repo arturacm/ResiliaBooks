@@ -25,6 +25,7 @@ Footer{
   grid-template-rows: 200px 1fr 150px;
   grid-template-areas: "Header" "main" "Footer";
   min-height: 100vh;
+  font-family: Montserrat;
 }
 .conteudoInvisivel{
   display: none;
