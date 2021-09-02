@@ -6,45 +6,41 @@ import Button from "../../Button/Button";
 
 const Div=styled.section`
 display: flex; 
-justify-content: center;
+flex-direction: column;
+justify-content: space-around;
 align-items: center;
 width: 100%;
 height: 100%;
 
-form{
-  padding: 5px;
+.inputs, a, .botoes{
+  padding: 20px;
   display: flex;
+  margin-bottom:5px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: #f5f3db;
-  width: 60%;
-  height: 60%;
+  width: 50vw;
+  /* height: 60%; */
   border-radius: 20px;
 }
-.botoes{
-  width: 60%;
-  display: flex;
+.inputs{
   flex-direction: row;
-  justify-content: space-around;
-
+}
+h1{
+  margin: 1vh;
+}
+input{
+  text-align: center;
 }
 .botoes button{
   cursor: pointer;
 }
-
-input{
-  margin:1vh;
-  text-align: center;
-}
-
 .listagem-autores{
   
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  width: 80%;
-  height: 30%;
+
   align-items: baseline;
   
 }
@@ -54,13 +50,29 @@ input{
   flex-wrap: wrap;
  
 }
- a {
+a {
   color: black;
   font-weight: bold;
+}
+.botoes{
+  /* width: 60%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 0;
+
+}
+a:last-child{
+  width:auto;
+}
+.Link{
+  text-decoration: none;
+  margin: 2px;
 }
 
 
 `
+
 function Autores() {
   const [autores, setAutores] = useState([]);
   const [nome, setNome] = useState("");
@@ -101,11 +113,13 @@ function Autores() {
    
 <form onSubmit={enviar} >
   <h3>Novo Autor</h3>
-
+        <section className= "inputs">
             <input  required placeholder="Digite o Nome" type="text"  value={nome}name="nome" onChange={(e)=>
             setNome(e.target.value)}/>
             <input  required placeholder="Digite a Nacionalidade" value={nacionalidade} type="text" name="nacionalidade" onChange={(e)=>
             setNac(e.target.value)}/>
+
+        </section>
             
             <section className="listagem-autores">
         

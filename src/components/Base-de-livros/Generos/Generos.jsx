@@ -12,15 +12,16 @@ align-items: center;
 width: 100%;
 height: 100%;
 
-form{
-  padding: 5px;
+section:first-child, a, .botoes{
+  padding: 20px;
   display: flex;
+  margin-bottom:5px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: #f5f3db;
-  width: 50%;
-  height: 60%;
+  width: 50vw;
+  /* height: 60%; */
   border-radius: 20px;
 }
 h1{
@@ -37,8 +38,8 @@ input{
   display: flex;
   flex-direction: column;
   
-  width: 80%;
-  height: 30%;
+  /* width: 80%; */
+  /* height: 30%; */
   align-items: baseline;
   
 }
@@ -53,11 +54,15 @@ a {
   font-weight: bold;
 }
 .botoes{
-  width: 60%;
+  /* width: 60%; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-right: 0;
 
+}
+a:last-child{
+  width:auto;
 }
 .Link{
   text-decoration: none;
@@ -103,9 +108,11 @@ function Generos() {
 
 <h1>Novo Genero</h1>
 <form onSubmit={enviar} >
-    
+    <section>
             <input required placeholder="Digite o genero" type="text"  value={genero} name="genero" onChange={(e)=>
             setGenero(e.target.value)}/>
+
+    </section>
             
 
 

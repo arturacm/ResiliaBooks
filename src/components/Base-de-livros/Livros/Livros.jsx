@@ -53,7 +53,8 @@ function Livros() {
 
   return (
     <div>
-       <div style={{"display":"flex"}}>
+  
+       <div style={{"display":"flex", "margin-top": "10px"}}>
         <Link to="/base-de-livros/Autores/"><Button>Acessar autores</Button> </Link>
         <Link to="/base-de-livros/Generos/"><Button> Acessar Generos</Button></Link>
       </div>
