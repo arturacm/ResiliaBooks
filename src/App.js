@@ -42,7 +42,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <main>
-              <h1>Bem vindo Resiliente! {user} </h1>
+            <h1 className="Titulo1" >Bem vindo Resiliente! {user} </h1>
               <Books />
             </main>
           </Route>

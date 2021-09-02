@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import axios from "axios";
 import styled from "styled-components";
+import Button from "../../Button/Button";
 
 const Div=styled.section`
 display: flex; 
@@ -11,12 +12,14 @@ width: 100%;
 height: 100%;
 
 form{
+  padding: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: #f5f3db;
- max-width: 50%;
-  max-height: 50%;
+  width: 50%;
+  height: 50%;
   border-radius: 20px;
 }
 h1{
@@ -25,25 +28,24 @@ h1{
 input{
   margin:1vh;
 }
-button{
-  cursor: pointer;
-background: #000000;
-border-radius: 30px;
-color: white;
-font-weight: bold;
 
-}
 .listagem-autores{
   background-color: #f5f3db;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 15vw;
-  height: 20vh;
-  align-items: center;
+  width: 80%;
+  height: 30%;
+  align-items: baseline;
   border-radius: 20px;
 }
+.itens-Listagem{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
 
+}
 .Link{
   text-decoration: none;
   margin: 2px;
@@ -96,7 +98,7 @@ function Autores() {
             setNome(e.target.value)}/>
             <input  required placeholder="Digite a Nacionalidade" value={nacionalidade} type="text" name="nacionalidade" onChange={(e)=>
             setNac(e.target.value)}/>
-            <button type="submit">Adicionar</button>
+            
             <section className="listagem-autores">
         <h3>Autores</h3>
         <div className="itens-Listagem">
@@ -109,6 +111,9 @@ function Autores() {
         })}
         </div>
       </section>
+      
+      <Button type="submit">Adicionar</Button>
+      <Link to="/base-de-livros/livros"> <Button type="button">Voltar</Button></Link>
         </form> <br/>
 
 

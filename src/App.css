@@ -6,14 +6,14 @@
 }
 .App{
   display: grid;
-  grid-template-rows: 200px 1fr 150px;
+  grid-template-rows: 100px 1fr 50px;
   grid-template-areas: "Header" "main" "Footer";
   min-height: 100vh;
   
 }
 Header{
   grid-area: Header;
-  background-color: #FFE609;
+  background-color: yellow;
 }
 main{
   grid-area: main;
@@ -21,5 +21,12 @@ main{
 
 Footer{
   grid-area: Footer;
-  background-color: #FFE609;
+  background-color: yellow;
+}
+.Titulo1{
+        font-weight: bold;
+        text-transform:uppercase;
+        text-align: center;
+        font-size: 30px;
+        
 }
