@@ -5,7 +5,11 @@
   text-decoration: none;
 }
 .App{
-  font-family: Montserrat;
+  display: grid;
+  grid-template-rows: 150px 1fr 150px;
+  grid-template-areas: "Header" "main" "Footer";
+  min-height: 100vh;
+  
 }
 Header{
   grid-area: Header;
@@ -19,36 +23,10 @@ Footer{
   grid-area: Footer;
   background-color: #FFE609;
 }
-
-/*===========================================================================================================
-      ANIMAÇÃO DE PRELOAD       =============================================================================
-=============================================================================================================*/
-.invisivel{
-  display: none;
-}
-.visivel{
-  display: grid;
-  grid-template-rows: 170px 1fr 25em;
-  grid-template-areas: "Header" "main" "Footer";
-  min-height: 100vh;
-}
-.loadingTrue{
-  width:100%;
-  height:100%;
-}
-
-.loadingTrue{
-  width: 60px;
-  height: 60px;
-  margin: 25% 25% 25% 45%;
-  border: 1em double #FFE609;
-  border-top-color: black;
-  border-radius: 50%;
-  animation: loading 1s ease-out infinite;
-}
-
-@keyframes loading {
-  to{
-    transform: rotate(1turn);
-  }
+.Titulo1{
+        font-weight: bold;
+        text-transform:uppercase;
+        text-align: center;
+        font-size: 30px;
+        
 }

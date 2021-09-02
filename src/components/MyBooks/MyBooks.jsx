@@ -5,6 +5,7 @@ const Livros = styled.section`
     width:80%;
     display:flex;
 
+
     .livro{
         
         display: flex;

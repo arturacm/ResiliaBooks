@@ -2,14 +2,71 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from './../../assets/images/logo.jpg';
-import lupa from "./../../assets/images/lupa.jpg";
-import coracao from './../../assets/images/favoritos.jpg';
 import login from './../../assets/images/login.jpg';
 import carrinho from './../../assets/images/carrinho.jpg';
 import livros from './../../assets/images/livros.png';
+import baseDeLivros from './../../assets/images/baseDeLivros.png';
 
-import Cabecalho from './estilo.js';
+const Cabecalho = styled.header`
+display: flex;
+flex-direction:column;
 
+.email{
+    height: 26px;
+        border: 1px solid black;
+        background: #FFFCB8;
+        border-top: #FFFCB8;
+        border-right: #FFFCB8;
+        padding: 2;
+        margin: 0;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    height:100%;
+    border-bottom:solid black 10px;
+}
+.logo{
+    border-radius:0;
+    width:auto;
+}
+nav a, nav{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+    margin-top:0px;
+    border-radius:10px;
+    
+}
+a:first-child{
+    margin-left:15px;
+}
+nav{
+    margin-right:20px
+}
+
+
+img{
+    height:70px;
+    width:70px;
+    margin-bottom:15px;
+    margin-top:15px;
+    transition: all 0.2s;
+}
+img:hover{
+    transform:scale(1.1)
+}
+.imgPerfil{
+    
+    border-radius:50%;
+}
+.menu{
+    display:flex;
+    justify-content:space-between;
+}
+`;
 
 
 function Header({ perfilEstaLogado, ehAdmin }) {
@@ -20,16 +77,17 @@ function Header({ perfilEstaLogado, ehAdmin }) {
             if (ehAdmin) {
                 return (
                     <>
-                        <Link className="space" to="/base-de-livros">
+                        <Link to="/base-de-livros/livros">
                             <nav>
-                               <h2>Base de Livros</h2>
+                                <img src={baseDeLivros} alt="logo base de livros"/>
+                                Base de Livros
                             </nav>
                         </Link>
-                        <Link className="space" to="/perfil">
-                                <div>
-                                <img className="imgLogin" src={`https://icon-library.com/images/icon-admin/icon-admin-0.jpg`} alt="Logo login ou foto usuario" /> 
-                                </div>
-                                <h2>Perfil</h2>
+                        <Link to="/perfil">
+                            <nav>
+                                <img src={`https://icon-library.com/images/icon-admin/icon-admin-0.jpg`} alt="Logo login ou foto usuario" />
+                                Perfil
+                            </nav>
                         </Link>
                     </>
                 )
@@ -38,55 +96,52 @@ function Header({ perfilEstaLogado, ehAdmin }) {
 
                 return (
                     <>
-                        <Link className="space" to="/meus-livros">
+                        <Link to="/meus-livros">
                             <nav>
-                               <h2> Meus Livros</h2>
+                                <img src={livros} alt="Meus Livros"/>
+                                Meus Livros
                             </nav>
                         </Link>
-                        <Link className="space" to="/perfil">
-                                <div>
-                                <img className="imgLogin" src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" /> 
-                                </div>
-                                <h2>Perfil</h2>
+                        <Link to="/perfil">
+                            <nav>
+                                <img className = "imgPerfil" src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" />
+                                Perfil
+                            </nav>
                         </Link>
                     </>
                 )
             }
-        }else{
-            return(
-                <>
-                <Link className="space" to="/login">
-                        <div>
-                        <img className="imgLogin" src={`https://github.com/${localStorage.getItem("user")}.png`} alt="Logo login ou foto usuario" /> 
-                        </div>
-                        <h2>Login</h2>
+        } else {
+            return (
+                <Link to="/login">
+                    <nav>
+                        <img src={login} alt="Logo login" />
+                        Login
+                    </nav>
                 </Link>
-                </>
             )
         }
     }
     return (
         <Cabecalho>
-            <main className="topBar">
-                <nav className="logoBar"> 
+            <div className="email">resiliabooks@gmail.com.br</div>
+            <section>
+                <nav>
                     <Link to="/">
-                        <div>
-                            <img className="imgLogo" src={logo} alt="" />
-                        </div>
-                        <h2 className="lg-subTitle">ResiliaBooks</h2>
+                        <img className="logo" src={logo} alt="logo"/>
+                        ResiliaBooks
                     </Link>
-                </nav> 
-                <nav className="casaNavBar">
-                            {logar()}
-                            <Link className="space" to="/carrinho">
-                                <div>
-                                    <img className="carrinho" src={carrinho} alt="" />
-                                </div>
-                                <h2>Meu Carrinho </h2>
-                            </Link>
                 </nav>
-            </main>
-            <div className="black">black</div>
+                <div className="menu">
+                    {logar()}
+                    <nav>
+                        <Link to="/carrinho">
+                            <img src={carrinho} alt="Logo carrinho"/>
+                            Meu Carrinho
+                        </Link>
+                    </nav>
+                </div>
+            </section>
         </Cabecalho>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import imageExists from 'image-exists'
 import {Alert} from 'react-st-modal'
+import Button from './../Button/Button'
 
 const Formulario = styled.form`
     display: flex;
@@ -64,7 +65,7 @@ function Login() {
                     Digite o seu usuario do Github
                 </label>
                 <input type="text" id="usuario" />
-                <input  type="submit"/>
+                <Button  type="submit"> Login</Button>
             </Formulario>
             {/* <img src={user?user:""} alt='Imagem do github do usuario'/> */}
         </>

@@ -180,7 +180,8 @@ function NewLivro() {
          Criar
         </button>
         
-        <Link to="/base-de-livros/Livros"><button>Voltar</button></Link>
+        <Link to="/base-de-livros/Livros"><button>Voltar</button>
+        </Link>
         </section>
       </form>
     </Div>

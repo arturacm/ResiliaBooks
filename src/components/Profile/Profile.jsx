@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from './../Button/Button'
 
 const Perfil = styled.section`
 width:50%;
@@ -7,6 +8,7 @@ display:flex;
 flex-direction:column;
 align-items:center;
 margin: 10px auto;
+
 `
 
 function Profile({ehAdmin}) {
@@ -28,9 +30,13 @@ function Profile({ehAdmin}) {
 
     return (
         <Perfil>
-            Aqui vai ser o componente referente ao perfil do usuario com botoes para logout e deletar conta
-            <button onClick = {logout}>Logout</button>
-            <button onClick = {apagarRegistros}>Deletar sua conta</button>
+            <p>
+            Configurações da conta
+            </p>
+            <br></br>
+            <Button onClick = {logout}>Logout</Button>
+            <br></br>
+            <Button onClick = {apagarRegistros}>Deletar sua conta</Button>
         </Perfil>
     )
 }
