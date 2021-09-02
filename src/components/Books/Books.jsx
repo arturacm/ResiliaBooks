@@ -43,8 +43,8 @@ function Books() {
                     
                     <article key={item.id} className="artigo">
                         <h3 className="Titulo1">{item.titulo}</h3>
-             <img src={item.capaURL} alt="capa do Livro" className="img" />
-             <Link to={`/livro/${item.id}`}>Acessar</Link>
+                        <Link to={`/livro/${item.id}`}> <img src={item.capaURL} alt="capa do Livro" className="img" /></Link>
+           
              
                     </article>
                     

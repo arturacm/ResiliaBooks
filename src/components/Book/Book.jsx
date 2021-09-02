@@ -94,15 +94,6 @@ function Book() {
     }, [id])
 
 
-    // function requisicao() {
-    //     fetch(`http://localhost:3000/livros/${parseInt(id)}`)
-    //         .then((res) => res.ok ? res.json() : false)
-    //         .catch(err => console.log(err))
-    //         .then(res => {
-    //             setLivro(res)
-    //             console.log(res);
-    //         })
-    // }
 
     async function adcCarrinho(livro) {
 
