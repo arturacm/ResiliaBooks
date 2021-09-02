@@ -21,6 +21,13 @@ import NewBook from "./components/Base-de-livros/Livros/NewBook";
 function App() {
   const [perfilEstaLogado, setPerfilEstaLogado] = useState(false);
   const user = localStorage.getItem("user");
+  const [preLoad, setPreLoad] = useState("loadingTrue");
+  const [conteudo, setConteudo] = useState("invisivel");
+
+  useEffect(()=>{
+    setPreLoad("invisivel");
+    setConteudo("visivel");
+  });
 
   let usuarioLocal = localStorage.getItem("user");
   
@@ -34,6 +41,9 @@ function App() {
 
   return (
     <div className="App">
+    <div className={preLoad}>
+    </div>
+      <div className={conteudo}>
       <BrowserRouter>
         <Header
           perfilEstaLogado={perfilEstaLogado}
@@ -66,7 +76,7 @@ function App() {
               <MyBooks perfilEstaLogado = {perfilEstaLogado}/>
             </main>
           </Route>
-          <Route path="/base-de-livros/Livros" exact>
+          <Route path="/base-de-livros" exact>
             <main>
               {usuarioLocal === "admin" ? (
                 <Livros />
@@ -134,6 +144,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
+      </div>
     </div>
   );
 }

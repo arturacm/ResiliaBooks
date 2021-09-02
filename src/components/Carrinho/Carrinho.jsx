@@ -1,12 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components'
+import style from './estilo';
 import { Confirm, Alert } from 'react-st-modal'
-
-const Tabela = styled.table`
-img{
-    max-width:100px
-}
-`
 
 function Carrinho({perfilEstaLogado}) {
     const [carrinho, setCarrinho] = useState(false);
@@ -57,7 +51,7 @@ function Carrinho({perfilEstaLogado}) {
     return (
         <section>
             <h1>Ola carrinho {user ? user : "logar agr"}</h1>
-            <Tabela>
+            <style.Tabela>
                 <thead>
                     <th>Item</th>
                     <th>Titulo</th>
@@ -70,12 +64,18 @@ function Carrinho({perfilEstaLogado}) {
                         if(jaPossuiLivro(livro)) numLivros++
                         return(
                             <tr key={i}>
-                                <td><img src={livro.capaURL} alt={`capa do livro ${livro.titulo}`}/></td>
-                                <td>{livro.titulo}</td>
-                                <td>{livro.autor.nome}</td>
-                                <td>{livro.preco}</td>
-                                <td><button onClick={()=>removerDoCarrinho(i)}>Remover</button></td>
-                                <td>{jaPossuiLivro(livro)?"Já possui":""} </td>
+                                <td className="info">
+                                    <div className="imgLivroCarrinho">
+                                        <img src={livro.capaURL} alt={`capa do livro ${livro.titulo}`}/>
+                                    </div>
+                                    <div className="infoLivro">
+                                        <h2>{livro.titulo}</h2>
+                                        <h3>{livro.autor.nome}</h3>
+                                        <span>{livro.preco}</span>
+                                        <span>{jaPossuiLivro(livro)?"Já possui":""} </span>
+                                    </div>
+                                </td>
+                                
                             </tr>
                         )
                     }):""}
@@ -84,7 +84,7 @@ function Carrinho({perfilEstaLogado}) {
                         <td>R$ {subTotal.toFixed(2)}</td>
                     </tfoot>
                 </tbody>
-            </Tabela>
+            </style.Tabela>
             <button onClick={limparCarrinho}>Limpar Carrinho</button>
             <button onClick ={async () => {
           const result = await Confirm(`O Subtotal foi de R$ ${subTotal.toFixed(2)}`, 
