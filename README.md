@@ -23,6 +23,11 @@ O protótipo foi feito no Figma e pode ser conferido no seguinte link (https://w
 
 # Aprendemos e utilizamos: 
 
+### Axios
+
+Usado para fazer requisições, Axios é um cliente HTTP baseado em promises.Pode ser utilizado no navegador. node ou qualquer serviço de API
+
+
 ### useEffect
 
 
@@ -92,6 +97,17 @@ Usado para navegar entre páginas diferentes da aplicação, pois, cada página 
 
 
 `
+
+ #### gostou!?? conheça mais sobre a gente, é só descer mais um pouco!
+
+#
+## ![github_devs](https://img.shields.io/badge/github_devs-100000?style=for-the-badge&logo=github&logocolor=white)
+- [arturacm](https://github.com/arturacm)
+- [galvaonana](https://github.com/galvaonana)
+- [marcoscabral](https://github.com/marcoscabral93)
+- [patolinodd](https://github.com/patolinodd) 
+- [verginia-fleitas](https://github.com/verginia-fleitas)
+
 
 
 
