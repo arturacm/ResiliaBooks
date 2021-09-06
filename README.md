@@ -14,10 +14,15 @@ Para se produzir uma única folha de papel A4, gasta-se 10L de água. Já pensou
 
 Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo
 
-- git clone https://github.com/arturacm/ResiliaBooks.git para clonar o projeto
+-Acesse https://github.com/PATOLINODD/livraria_API e faça o git clone para clonar o projeto
+-Abra em http://localhost:3000 em seu navegador
+- depois disso, clone o projeto no link  https://github.com/arturacm/ResiliaBooks.git
 - yarn para instalar as dependências do projeto
 - yarn start
-- Acessar http://localhost:3000 no navegador
+- Acessar http://localhost:3001 no navegador
+
+
+
 ### Protótipo
 O protótipo foi feito no Figma e pode ser conferido no seguinte link (https://www.figma.com/file/iDfATWqWX1wuZfMs09NZ8F/ResiliaBooks?node-id=0%3A1). Optamos por fazer um prototipo antes para facilitar o trabalho da equipe.
 
