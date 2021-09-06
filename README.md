@@ -14,12 +14,14 @@ Para se produzir uma única folha de papel A4, gasta-se 10L de água. Já pensou
 
 Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo
 
--Acesse https://github.com/PATOLINODD/livraria_API e faça o git clone para clonar o projeto
+-Acesse livraria API em: https://github.com/PATOLINODD/livraria_API
+-Clone o repositório
 -Abra em http://localhost:3000 em seu navegador
-- depois disso, clone o projeto no link  https://github.com/arturacm/ResiliaBooks.git
-- yarn para instalar as dependências do projeto
-- yarn start
-- Acessar http://localhost:3001 no navegador
+-digite npm start no terminal do seu VSCode para rodar a API
+-Depois disso, clone o projeto Resilia Books em: https://github.com/arturacm/ResiliaBooks.git
+-Yarn para instalar as dependencias do projeto
+-Yarn start
+-Acessar http://localhost:3001 no navegador
 
 
 
